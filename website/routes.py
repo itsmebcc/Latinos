@@ -5,9 +5,9 @@ Serves homepage, article pages, category pages, search, RSS, and sitemap.
 
 from datetime import datetime
 from fastapi import APIRouter, Request, Query, HTTPException
-from fastapi.responses import HTMLResponse, Response
+from fastapi.responses import HTMLResponse, Response, JSONResponse
 from sqlalchemy import select, func, desc
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from models import Article, Category
 from database import get_db
@@ -23,7 +23,7 @@ async def homepage(request: Request):
     # Fetch all published content for the homepage
     # Breaking news
     breaking = db.execute(
-        select(Article)
+        select(Article).options(joinedload(Article.category_rel))
         .where(Article.status == "published")
         .where(Article.is_breaking == True)
         .order_by(desc(Article.published_at))
@@ -32,7 +32,7 @@ async def homepage(request: Request):
 
     # Hero/featured story (top non-breaking published article)
     hero = db.execute(
-        select(Article)
+        select(Article).options(joinedload(Article.category_rel))
         .where(Article.status == "published")
         .where(Article.is_featured == True)
         .order_by(desc(Article.published_at))
@@ -42,7 +42,7 @@ async def homepage(request: Request):
     # If no featured article, use the most recent
     if not hero:
         hero = db.execute(
-            select(Article)
+            select(Article).options(joinedload(Article.category_rel))
             .where(Article.status == "published")
             .order_by(desc(Article.published_at))
             .limit(1)
@@ -51,7 +51,7 @@ async def homepage(request: Request):
     # Main grid (exclude hero)
     hero_id = hero.id if hero else -1
     grid_articles = db.execute(
-        select(Article)
+        select(Article).options(joinedload(Article.category_rel))
         .where(Article.status == "published")
         .where(Article.id != hero_id)
         .order_by(desc(Article.published_at))
@@ -68,7 +68,7 @@ async def homepage(request: Request):
     category_sections = []
     for cat in categories:
         articles = db.execute(
-            select(Article)
+            select(Article).options(joinedload(Article.category_rel))
             .where(Article.status == "published")
             .where(Article.category_id == cat.id)
             .order_by(desc(Article.published_at))
@@ -82,10 +82,46 @@ async def homepage(request: Request):
 
     # Trending / Most viewed
     trending = db.execute(
-        select(Article)
+        select(Article).options(joinedload(Article.category_rel))
         .where(Article.status == "published")
         .order_by(desc(Article.view_count))
         .limit(5)
+    ).scalars().all()
+
+    # Phase 6 feature rails: curated modules for a richer homepage.
+    editors_picks = db.execute(
+        select(Article).options(joinedload(Article.category_rel))
+        .where(Article.status == "published")
+        .where(Article.id != hero_id)
+        .order_by(desc(Article.quality_score), desc(Article.published_at))
+        .limit(4)
+    ).scalars().all()
+
+    sports_hub = db.execute(
+        select(Article).options(joinedload(Article.category_rel))
+        .join(Category, Article.category_id == Category.id)
+        .where(Article.status == "published")
+        .where(Category.slug == "deportes")
+        .order_by(desc(Article.published_at))
+        .limit(4)
+    ).scalars().all()
+
+    cultura_musica = db.execute(
+        select(Article).options(joinedload(Article.category_rel))
+        .join(Category, Article.category_id == Category.id)
+        .where(Article.status == "published")
+        .where(Category.slug.in_(["cultura", "musica", "entretenimiento"]))
+        .order_by(desc(Article.published_at))
+        .limit(6)
+    ).scalars().all()
+
+    comunidad_spotlight = db.execute(
+        select(Article).options(joinedload(Article.category_rel))
+        .join(Category, Article.category_id == Category.id)
+        .where(Article.status == "published")
+        .where(Category.slug.in_(["comunidad", "noticias"]))
+        .order_by(desc(Article.published_at))
+        .limit(3)
     ).scalars().all()
 
     return request.app.state.templates.TemplateResponse("index.html", {
@@ -95,6 +131,10 @@ async def homepage(request: Request):
         "grid_articles": grid_articles,
         "category_sections": category_sections,
         "trending": trending,
+        "editors_picks": editors_picks,
+        "sports_hub": sports_hub,
+        "cultura_musica": cultura_musica,
+        "comunidad_spotlight": comunidad_spotlight,
         "categories": categories,
     })
 
@@ -105,7 +145,7 @@ async def article_page(request: Request, slug: str):
     db: Session = next(get_db())
 
     article = db.execute(
-        select(Article).where(Article.slug == slug)
+        select(Article).options(joinedload(Article.category_rel)).where(Article.slug == slug)
     ).scalars().first()
 
     if not article or article.status != "published":
@@ -119,7 +159,7 @@ async def article_page(request: Request, slug: str):
     related = []
     if article.category_id:
         related = db.execute(
-            select(Article)
+            select(Article).options(joinedload(Article.category_rel))
             .where(Article.status == "published")
             .where(Article.category_id == article.category_id)
             .where(Article.id != article.id)
@@ -168,7 +208,7 @@ async def category_page(
     ).scalar()
 
     articles = db.execute(
-        select(Article)
+        select(Article).options(joinedload(Article.category_rel))
         .where(Article.status == "published")
         .where(Article.category_id == category.id)
         .order_by(desc(Article.published_at))
@@ -209,7 +249,7 @@ async def search(
     # SQLite FTS or LIKE search
     search_term = f"%{q}%"
     query = (
-        select(Article)
+        select(Article).options(joinedload(Article.category_rel))
         .where(Article.status == "published")
         .where(
             (Article.title.like(search_term)) |
@@ -250,7 +290,7 @@ async def rss_feed():
     db: Session = next(get_db())
 
     articles = db.execute(
-        select(Article)
+        select(Article).options(joinedload(Article.category_rel))
         .where(Article.status == "published")
         .order_by(desc(Article.published_at))
         .limit(20)
@@ -317,6 +357,22 @@ async def sitemap():
 async def robots():
     content = "User-agent: *\nAllow: /\nSitemap: https://latinos.org/sitemap.xml\n"
     return Response(content=content, media_type="text/plain")
+
+
+@router.get("/manifest.webmanifest")
+async def web_manifest():
+    """Small web app manifest for install/share metadata."""
+    return JSONResponse({
+        "name": "Latinos.org",
+        "short_name": "Latinos",
+        "description": "Noticias, cultura, deportes y entretenimiento para la comunidad Hispana y Latina.",
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#C8102E",
+        "lang": "es-US",
+        "categories": ["news", "sports", "entertainment"],
+    }, media_type="application/manifest+json")
 
 
 def _xml_escape(text: str) -> str:

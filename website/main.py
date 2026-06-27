@@ -44,6 +44,7 @@ import markdown as md
 
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 templates.env.filters["from_json"] = lambda s: json.loads(s) if s else []
+templates.env.filters["to_json"] = lambda obj: json.dumps(obj, ensure_ascii=False)
 templates.env.filters["markdown"] = lambda s: md.markdown(s, extensions=["extra", "nl2br"]) if s else ""
 app.state.templates = templates
 
@@ -51,6 +52,24 @@ app.state.templates = templates
 static_dir = BASE_DIR / "static"
 static_dir.mkdir(parents=True, exist_ok=True)
 app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+
+
+@app.middleware("http")
+async def performance_headers(request: Request, call_next):
+    """Cache static assets and add lightweight public-site security headers."""
+    response = await call_next(request)
+
+    if request.url.path.startswith("/static/"):
+        response.headers.setdefault("Cache-Control", "public, max-age=31536000, immutable")
+    elif request.url.path in {"/feed.xml", "/sitemap.xml", "/robots.txt"}:
+        response.headers.setdefault("Cache-Control", "public, max-age=300")
+    else:
+        response.headers.setdefault("Cache-Control", "public, max-age=60")
+
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
+    response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+    return response
 
 # === Routes ===
 app.include_router(router)

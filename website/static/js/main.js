@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuBtn && mainNav) {
         menuBtn.addEventListener('click', function() {
             mainNav.classList.toggle('open');
+            menuBtn.setAttribute('aria-expanded', mainNav.classList.contains('open') ? 'true' : 'false');
         });
     }
 
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mainNav && mainNav.classList.contains('open')) {
             if (!mainNav.contains(e.target) && !menuBtn.contains(e.target)) {
                 mainNav.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
             }
         }
     });

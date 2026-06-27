@@ -16,7 +16,7 @@
                 <a href="/articulo/{{ a.slug }}" class="search-result-item">
                     <div class="card-image">
                         {% if a.image_url %}
-                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" width="640" height="360" loading="lazy" decoding="async">
                         {% else %}
                             <div class="card-image-placeholder"></div>
                         {% endif %}

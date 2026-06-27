@@ -8,6 +8,23 @@
 {% if article.image_url %}
 {% block og_image %}{{ article.image_url }}{% endblock %}
 {% endif %}
+{% block structured_data %}
+<script type="application/ld+json">
+{{ {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": article.title,
+    "description": article.meta_description or article.excerpt or "",
+    "image": article.image_url if article.image_url else None,
+    "datePublished": article.published_at.isoformat() if article.published_at else None,
+    "dateModified": article.published_at.isoformat() if article.published_at else None,
+    "author": {"@type": "Organization", "name": article.author_display or "Latinos.org"},
+    "publisher": {"@type": "NewsMediaOrganization", "name": "Latinos.org"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": request.url|string},
+    "inLanguage": "es"
+} | to_json | safe }}
+</script>
+{% endblock %}
 
 {% block content %}
 <article class="article-page">
@@ -43,7 +60,7 @@
         <!-- Featured Image -->
         {% if article.image_url %}
         <figure class="article-featured-image">
-            <img src="{{ article.image_url }}" alt="{{ article.image_alt or article.title }}">
+            <img src="{{ article.image_url }}" alt="{{ article.image_alt or article.title }}" width="1200" height="675" loading="eager" decoding="async" fetchpriority="high">
             {% if article.image_credit %}
                 <figcaption>Foto: {{ article.image_credit }}</figcaption>
             {% endif %}
@@ -96,7 +113,7 @@
                     <a href="/articulo/{{ a.slug }}" class="article-card">
                         <div class="card-image">
                             {% if a.image_url %}
-                                <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                                <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" width="640" height="360" loading="lazy" decoding="async">
                             {% else %}
                                 <div class="card-image-placeholder"></div>
                             {% endif %}

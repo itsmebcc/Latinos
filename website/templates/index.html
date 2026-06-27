@@ -2,6 +2,11 @@
 
 {% block title %}Latinos.org — Noticias, Cultura, Deportes y Entretenimiento{% endblock %}
 {% block meta_description %}Las últimas noticias, deportes, cultura y entretenimiento para la comunidad Hispana y Latina en EE.UU.{% endblock %}
+{% block extra_head %}
+{% if hero and hero.image_url %}
+<link rel="preload" as="image" href="{{ hero.image_url }}" fetchpriority="high">
+{% endif %}
+{% endblock %}
 
 {% block content %}
 
@@ -12,7 +17,7 @@
         <a href="/articulo/{{ hero.slug }}" class="hero-card">
             <div class="hero-image">
                 {% if hero.image_url %}
-                    <img src="{{ hero.image_url }}" alt="{{ hero.image_alt or hero.title }}" loading="eager">
+                    <img src="{{ hero.image_url }}" alt="{{ hero.image_alt or hero.title }}" width="1400" height="600" loading="eager" decoding="async" fetchpriority="high">
                 {% else %}
                     <div class="hero-image-placeholder"></div>
                 {% endif %}
@@ -39,6 +44,17 @@
 </section>
 {% endif %}
 
+<!-- === QUICK FEATURE STRIP === -->
+<section class="feature-strip" aria-label="Secciones destacadas">
+    <div class="container feature-strip-inner">
+        <a href="/categoria/deportes" class="feature-pill">⚽ Mundial y Fútbol</a>
+        <a href="/categoria/musica" class="feature-pill">🎧 Música Latina</a>
+        <a href="/categoria/entretenimiento" class="feature-pill">✨ Celebridades</a>
+        <a href="/categoria/comunidad" class="feature-pill">🤝 Comunidad</a>
+        <a href="/feed.xml" class="feature-pill feature-pill-rss">RSS</a>
+    </div>
+</section>
+
 <!-- === MAIN GRID === -->
 {% if grid_articles %}
 <section class="grid-section">
@@ -51,7 +67,7 @@
                 <a href="/articulo/{{ a.slug }}" class="article-card {% if loop.index == 1 %}article-card-large{% endif %}">
                     <div class="card-image">
                         {% if a.image_url %}
-                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" width="640" height="360" loading="lazy" decoding="async">
                         {% else %}
                             <div class="card-image-placeholder"></div>
                         {% endif %}
@@ -77,6 +93,93 @@
 </section>
 {% endif %}
 
+<!-- === EDITORS + COMMUNITY MODULES === -->
+{% if editors_picks or comunidad_spotlight %}
+<section class="frontpage-modules">
+    <div class="container frontpage-modules-grid">
+        {% if editors_picks %}
+        <div class="module-card editors-module">
+            <div class="module-eyebrow">Selección editorial</div>
+            <h2 class="module-title">Historias que vale la pena leer</h2>
+            <div class="editors-list">
+                {% for a in editors_picks %}
+                <a href="/articulo/{{ a.slug }}" class="editors-item">
+                    <span class="editors-rank">{{ loop.index }}</span>
+                    <div>
+                        {% if a.category_rel %}<span class="mini-category">{{ a.category_rel.name }}</span>{% endif %}
+                        <h3>{{ a.title }}</h3>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if comunidad_spotlight %}
+        <div class="module-card community-module">
+            <div class="module-eyebrow">Comunidad</div>
+            <h2 class="module-title">Recursos, inmigración y vida Latina</h2>
+            {% for a in comunidad_spotlight %}
+            <a href="/articulo/{{ a.slug }}" class="community-item">
+                <h3>{{ a.title }}</h3>
+                {% if a.excerpt %}<p>{{ a.excerpt[:115] }}{% if a.excerpt|length > 115 %}...{% endif %}</p>{% endif %}
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+<!-- === CULTURA / MÚSICA / ENTERTAINMENT RAIL === -->
+{% if cultura_musica %}
+<section class="culture-rail">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Cultura pop, música y estrellas</h2>
+            <a href="/categoria/entretenimiento" class="see-all">Explorar →</a>
+        </div>
+        <div class="culture-scroll" aria-label="Cultura, música y entretenimiento">
+            {% for a in cultura_musica %}
+            <a href="/articulo/{{ a.slug }}" class="culture-card">
+                <div class="culture-thumb">
+                    {% if a.image_url %}
+                    <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" width="420" height="560" loading="lazy" decoding="async">
+                    {% else %}
+                    <div class="culture-placeholder">{{ a.category_rel.name if a.category_rel else 'Latinos.org' }}</div>
+                    {% endif %}
+                </div>
+                <span class="mini-category">{{ a.category_rel.name if a.category_rel else 'Cultura' }}</span>
+                <h3>{{ a.title }}</h3>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- === SPORTS / EVENT HUB === -->
+{% if sports_hub %}
+<section class="sports-hub">
+    <div class="container sports-hub-inner">
+        <div class="sports-hub-copy">
+            <span class="module-eyebrow">Deportes</span>
+            <h2>Fútbol, torneos y orgullo Latino</h2>
+            <p>Seguimiento de clubes, selecciones, Copas y las historias que conectan a la afición Latina en EE.UU.</p>
+            <a href="/categoria/deportes" class="hub-cta">Ir al hub deportivo →</a>
+        </div>
+        <div class="sports-hub-list">
+            {% for a in sports_hub %}
+            <a href="/articulo/{{ a.slug }}" class="sports-hub-item">
+                <span>{{ loop.index }}</span>
+                <h3>{{ a.title }}</h3>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <!-- === CATEGORY SECTIONS === -->
 {% for section in category_sections %}
 <section class="category-section" id="cat-{{ section.category.slug }}">
@@ -92,7 +195,7 @@
                 <a href="/articulo/{{ a.slug }}" class="article-card">
                     <div class="card-image">
                         {% if a.image_url %}
-                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" width="640" height="360" loading="lazy" decoding="async">
                         {% else %}
                             <div class="card-image-placeholder"></div>
                         {% endif %}
