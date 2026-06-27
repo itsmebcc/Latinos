@@ -1,0 +1,14 @@
+# Local development
+.venv/
+__pycache__/
+*.pyc
+
+# Keep the synced DB (latinos.db) for Railway deployment
+# But ignore working copies during local development
+*.db-journal
+*.db-wal
+*.db-shm
+
+# IDE
+.vscode/
+.idea/

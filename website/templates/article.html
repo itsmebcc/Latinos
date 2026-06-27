@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — Latinos.org{% endblock %}
+{% block meta_description %}{{ article.meta_description or article.excerpt or '' }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ article.title }}{% endblock %}
+{% block og_description %}{{ article.excerpt or article.meta_description or '' }}{% endblock %}
+{% if article.image_url %}
+{% block og_image %}{{ article.image_url }}{% endblock %}
+{% endif %}
+
+{% block content %}
+<article class="article-page">
+    <div class="container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="/">Inicio</a>
+            {% if article.category_rel %}
+                <span class="separator">›</span>
+                <a href="/categoria/{{ article.category_rel.slug }}">{{ article.category_rel.name }}</a>
+            {% endif %}
+        </nav>
+
+        <!-- Article Header -->
+        <header class="article-header">
+            {% if article.category_rel %}
+                <span class="article-category-tag">{{ article.category_rel.name }}</span>
+            {% endif %}
+            <h1 class="article-title">{{ article.title }}</h1>
+            {% if article.excerpt %}
+                <p class="article-lead">{{ article.excerpt }}</p>
+            {% endif %}
+            <div class="article-byline">
+                <span>Por <strong>{{ article.author_display }}</strong></span>
+                {% if article.published_at %}
+                    <span class="separator">•</span>
+                    <time>{{ article.published_at.strftime('%d de %B, %Y · %H:%M') }}</time>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- Featured Image -->
+        {% if article.image_url %}
+        <figure class="article-featured-image">
+            <img src="{{ article.image_url }}" alt="{{ article.image_alt or article.title }}">
+            {% if article.image_credit %}
+                <figcaption>Foto: {{ article.image_credit }}</figcaption>
+            {% endif %}
+        </figure>
+        {% endif %}
+
+        <!-- Article Body -->
+        <div class="article-body">
+            {% if article.body_html %}
+                {{ article.body_html | safe }}
+            {% else %}
+                {{ article.body_markdown | markdown | safe }}
+            {% endif %}
+        </div>
+
+        <!-- Tags -->
+        {% if article.tags %}
+        <div class="article-tags">
+            {% set tags = article.tags | from_json %}
+            {% for tag in tags %}
+                <a href="/buscar?q={{ tag }}" class="tag">#{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Source Credit -->
+        {% if article.source_credit %}
+        <div class="source-credit">
+            <small>Fuente original: {{ article.source_credit }}</small>
+        </div>
+        {% endif %}
+
+        <!-- Share buttons -->
+        <div class="share-buttons">
+            <span class="share-label">Compartir:</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" target="_blank" rel="noopener" class="share-btn">FB</a>
+            <a href="https://twitter.com/intent/tweet?text={{ article.title }}&url={{ request.url }}" target="_blank" rel="noopener" class="share-btn">X</a>
+            <a href="https://wa.me/?text={{ article.title }} {{ request.url }}" target="_blank" rel="noopener" class="share-btn">WA</a>
+        </div>
+
+    </div>
+
+    <!-- Related Articles -->
+    {% if related %}
+    <section class="related-section">
+        <div class="container">
+            <h2 class="section-title">Relacionados</h2>
+            <div class="category-grid">
+                {% for a in related %}
+                    <a href="/articulo/{{ a.slug }}" class="article-card">
+                        <div class="card-image">
+                            {% if a.image_url %}
+                                <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                            {% else %}
+                                <div class="card-image-placeholder"></div>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{ a.title }}</h3>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</article>
+
+{% endblock %}

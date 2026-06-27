@@ -1,0 +1,47 @@
+# === LOCAL-ONLY: Admin portal & pipeline (NEVER deploy to Railway) ===
+admin/
+pipeline/
+shared/
+scripts/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# === Environment ===
+.env
+.env.local
+.env.*.local
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Database (local working copies, not the synced Railway DB) ===
+*.db-journal
+*.db-wal
+*.db-shm
+pipeline_data/
+
+# === Logs ===
+*.log
+logs/
+
+# === CloakBrowser ===
+browser-search/

@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Latinos.org — Noticias, Cultura, Deportes y Entretenimiento{% endblock %}
+{% block meta_description %}Las últimas noticias, deportes, cultura y entretenimiento para la comunidad Hispana y Latina en EE.UU.{% endblock %}
+
+{% block content %}
+
+<!-- === HERO SECTION === -->
+{% if hero %}
+<section class="hero-section">
+    <div class="container">
+        <a href="/articulo/{{ hero.slug }}" class="hero-card">
+            <div class="hero-image">
+                {% if hero.image_url %}
+                    <img src="{{ hero.image_url }}" alt="{{ hero.image_alt or hero.title }}" loading="eager">
+                {% else %}
+                    <div class="hero-image-placeholder"></div>
+                {% endif %}
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                {% if hero.category_rel %}
+                    <span class="hero-category">{{ hero.category_rel.name }}</span>
+                {% endif %}
+                <h1 class="hero-title">{{ hero.title }}</h1>
+                {% if hero.excerpt %}
+                    <p class="hero-excerpt">{{ hero.excerpt }}</p>
+                {% endif %}
+                <div class="hero-meta">
+                    <span>{{ hero.author_display }}</span>
+                    {% if hero.published_at %}
+                        <span>•</span>
+                        <span>{{ hero.published_at.strftime('%d %b %Y, %H:%M') }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+{% endif %}
+
+<!-- === MAIN GRID === -->
+{% if grid_articles %}
+<section class="grid-section">
+    <div class="container">
+        <div class="grid-header">
+            <h2 class="section-title">Lo Más Reciente</h2>
+        </div>
+        <div class="article-grid">
+            {% for a in grid_articles %}
+                <a href="/articulo/{{ a.slug }}" class="article-card {% if loop.index == 1 %}article-card-large{% endif %}">
+                    <div class="card-image">
+                        {% if a.image_url %}
+                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                        {% else %}
+                            <div class="card-image-placeholder"></div>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        {% if a.category_rel %}
+                            <span class="card-category">{{ a.category_rel.name }}</span>
+                        {% endif %}
+                        <h3 class="card-title">{{ a.title }}</h3>
+                        {% if a.excerpt and loop.index <= 3 %}
+                            <p class="card-excerpt">{{ a.excerpt[:120] }}{% if a.excerpt|length > 120 %}...{% endif %}</p>
+                        {% endif %}
+                        <div class="card-meta">
+                            {% if a.published_at %}
+                                <span>{{ a.published_at.strftime('%d %b %Y') }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- === CATEGORY SECTIONS === -->
+{% for section in category_sections %}
+<section class="category-section" id="cat-{{ section.category.slug }}">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">
+                <a href="/categoria/{{ section.category.slug }}">{{ section.category.name }}</a>
+            </h2>
+            <a href="/categoria/{{ section.category.slug }}" class="see-all">Ver todo →</a>
+        </div>
+        <div class="category-grid">
+            {% for a in section.articles %}
+                <a href="/articulo/{{ a.slug }}" class="article-card">
+                    <div class="card-image">
+                        {% if a.image_url %}
+                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                        {% else %}
+                            <div class="card-image-placeholder"></div>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ a.title }}</h3>
+                        <div class="card-meta">
+                            {% if a.published_at %}
+                                <span>{{ a.published_at.strftime('%d %b %Y') }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+<!-- === TRENDING SIDEBAR === -->
+{% if trending %}
+<section class="trending-section">
+    <div class="container">
+        <div class="trending-inner">
+            <h2 class="section-title">🔥 Lo Más Visto</h2>
+            <div class="trending-list">
+                {% for a in trending %}
+                    <a href="/articulo/{{ a.slug }}" class="trending-item">
+                        <span class="trending-number">{{ loop.index }}</span>
+                        <div class="trending-content">
+                            <h4>{{ a.title }}</h4>
+                            {% if a.category_rel %}
+                                <span class="trending-category">{{ a.category_rel.name }}</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if not hero and not grid_articles %}
+<!-- === EMPTY STATE === -->
+<section class="empty-state">
+    <div class="container">
+        <div class="empty-content">
+            <h1>Latinos.org</h1>
+            <p>Tu fuente de noticias, cultura y entretenimiento.</p>
+            <p class="empty-subtitle">Estamos preparando algo grande. ¡Vuelve pronto!</p>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

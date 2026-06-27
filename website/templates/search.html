@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Buscar: {{ query }} — Latinos.org{% endblock %}
+
+{% block content %}
+<section class="search-page">
+    <div class="container">
+        <header class="category-header">
+            <h1>Resultados: "{{ query }}"</h1>
+            <p class="category-desc">{{ total_results }} resultado(s) encontrado(s)</p>
+        </header>
+
+        {% if articles %}
+        <div class="search-results">
+            {% for a in articles %}
+                <a href="/articulo/{{ a.slug }}" class="search-result-item">
+                    <div class="card-image">
+                        {% if a.image_url %}
+                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                        {% else %}
+                            <div class="card-image-placeholder"></div>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        {% if a.category_rel %}
+                            <span class="card-category">{{ a.category_rel.name }}</span>
+                        {% endif %}
+                        <h3 class="card-title">{{ a.title }}</h3>
+                        {% if a.excerpt %}
+                            <p class="card-excerpt">{{ a.excerpt[:150] }}{% if a.excerpt|length > 150 %}...{% endif %}</p>
+                        {% endif %}
+                        <div class="card-meta">
+                            {% if a.published_at %}
+                                <span>{{ a.published_at.strftime('%d %b %Y') }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+        {% if total_pages > 1 %}
+        <nav class="pagination">
+            {% if page > 1 %}
+                <a href="/buscar?q={{ query }}&page={{ page - 1 }}" class="page-btn">← Anterior</a>
+            {% endif %}
+            <span class="page-info">Página {{ page }} de {{ total_pages }}</span>
+            {% if page < total_pages %}
+                <a href="/buscar?q={{ query }}&page={{ page + 1 }}" class="page-btn">Siguiente →</a>
+            {% endif %}
+        </nav>
+        {% endif %}
+
+        {% else %}
+        <div class="empty-state" style="padding: 4rem 0; text-align: center;">
+            <h2>Sin resultados</h2>
+            <p>No encontramos artículos para "{{ query }}". Intenta con otros términos.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

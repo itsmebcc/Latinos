@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Latinos.org — Noticias, Cultura y Entretenimiento{% endblock %}</title>
+
+    <meta name="description" content="{% block meta_description %}Noticias, cultura, deportes y entretenimiento para la comunidad Hispana y Latina.{% endblock %}">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Latinos.org">
+    <meta property="og:title" content="{% block og_title %}Latinos.org{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Noticias, cultura y entretenimiento para la comunidad Hispana/Latina.{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{% block og_image %}/static/img/logo-og.png{% endblock %}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block tw_title %}Latinos.org{% endblock %}">
+    <meta name="twitter:description" content="{% block tw_description %}Noticias, cultura y entretenimiento.{% endblock %}">
+
+    <link rel="alternate" type="application/rss+xml" title="Latinos.org" href="/feed.xml">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- === BREAKING NEWS BANNER === -->
+<div class="breaking-bar" id="breakingBar">
+    <div class="container breaking-content">
+        <span class="breaking-label">⚡ ÚLTIMA HORA</span>
+        <div class="breaking-items" id="breakingItems">
+            {% if breaking %}
+                {% for a in breaking %}
+                    <a href="/articulo/{{ a.slug }}" class="breaking-item {% if loop.first %}active{% endif %}">
+                        {{ a.title }}
+                    </a>
+                {% endfor %}
+            {% else %}
+                <span class="breaking-item active">Bienvenido a Latinos.org — Próximamente</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- === HEADER / NAV === -->
+<header class="site-header">
+    <div class="container header-inner">
+        <!-- Mobile menu toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </button>
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="logo-text">Latinos<span class="logo-accent">.org</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="main-nav" id="mainNav">
+            <a href="/">Inicio</a>
+            <a href="/categoria/noticias">Noticias</a>
+            <a href="/categoria/deportes">Deportes</a>
+            <a href="/categoria/entretenimiento">Entretenimiento</a>
+            <a href="/categoria/cultura">Cultura</a>
+            <a href="/categoria/musica">Música</a>
+            <a href="/categoria/comunidad">Comunidad</a>
+        </nav>
+
+        <!-- Search -->
+        <form action="/buscar" method="get" class="header-search">
+            <input type="text" name="q" placeholder="Buscar..." aria-label="Buscar">
+            <button type="submit" aria-label="Buscar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+</header>
+
+<!-- === MAIN CONTENT === -->
+<main class="site-main">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- === FOOTER === -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-col footer-brand">
+            <a href="/" class="logo footer-logo">
+                <span class="logo-text">Latinos<span class="logo-accent">.org</span></span>
+            </a>
+            <p>Tu voz. Tu comunidad. Tu cultura.</p>
+            <p class="footer-tagline">Noticias, cultura y entretenimiento para la comunidad Hispana y Latina en Estados Unidos.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Secciones</h4>
+            <ul>
+                <li><a href="/categoria/noticias">Noticias</a></li>
+                <li><a href="/categoria/deportes">Deportes</a></li>
+                <li><a href="/categoria/entretenimiento">Entretenimiento</a></li>
+                <li><a href="/categoria/cultura">Cultura</a></li>
+                <li><a href="/categoria/musica">Música</a></li>
+                <li><a href="/categoria/comunidad">Comunidad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Comunidad</h4>
+            <ul>
+                <li><a href="/categoria/inmigracion">Inmigración</a></li>
+                <li><a href="/categoria/recursos">Recursos</a></li>
+                <li><a href="/categoria/salud">Salud y Bienestar</a></li>
+                <li><a href="/categoria/educacion">Educación</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook" class="social-link">FB</a>
+                <a href="#" aria-label="Instagram" class="social-link">IG</a>
+                <a href="#" aria-label="Twitter/X" class="social-link">X</a>
+                <a href="#" aria-label="YouTube" class="social-link">YT</a>
+                <a href="#" aria-label="TikTok" class="social-link">TK</a>
+            </div>
+            <h4 style="margin-top: 1.5rem;">Newsletter</h4>
+            <form class="newsletter-form" onsubmit="return false;">
+                <input type="email" placeholder="Tu correo electrónico" aria-label="Email">
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; {{ request.url.hostname or "latinos.org" }} — Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="/static/js/main.js"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

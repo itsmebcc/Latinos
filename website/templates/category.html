@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category.name }} — Latinos.org{% endblock %}
+{% block meta_description %}Las últimas noticias de {{ category.name }} en Latinos.org{% endblock %}
+
+{% block content %}
+<section class="category-page">
+    <div class="container">
+        <header class="category-header">
+            <h1>{{ category.name }}</h1>
+            {% if category.description %}
+                <p class="category-desc">{{ category.description }}</p>
+            {% endif %}
+        </header>
+
+        {% if articles %}
+        <div class="article-grid">
+            {% for a in articles %}
+                <a href="/articulo/{{ a.slug }}" class="article-card">
+                    <div class="card-image">
+                        {% if a.image_url %}
+                            <img src="{{ a.image_url }}" alt="{{ a.image_alt or a.title }}" loading="lazy">
+                        {% else %}
+                            <div class="card-image-placeholder"></div>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ a.title }}</h3>
+                        {% if a.excerpt %}
+                            <p class="card-excerpt">{{ a.excerpt[:120] }}{% if a.excerpt|length > 120 %}...{% endif %}</p>
+                        {% endif %}
+                        <div class="card-meta">
+                            {% if a.published_at %}
+                                <span>{{ a.published_at.strftime('%d %b %Y') }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if total_pages > 1 %}
+        <nav class="pagination">
+            {% if page > 1 %}
+                <a href="/categoria/{{ category.slug }}?page={{ page - 1 }}" class="page-btn">← Anterior</a>
+            {% endif %}
+            <span class="page-info">Página {{ page }} de {{ total_pages }}</span>
+            {% if page < total_pages %}
+                <a href="/categoria/{{ category.slug }}?page={{ page + 1 }}" class="page-btn">Siguiente →</a>
+            {% endif %}
+        </nav>
+        {% endif %}
+
+        {% else %}
+        <div class="empty-state" style="padding: 4rem 0; text-align: center;">
+            <h2>No hay artículos aún</h2>
+            <p>Pronto tendremos contenido de {{ category.name }}.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
