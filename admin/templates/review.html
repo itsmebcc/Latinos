@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% set active_tab = 'review' %}
+{% set pending_review_count = status_counts.get('pending_review', 0) %}
+{% set page_title = 'Review Queue' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Review Queue</h1>
+</div>
+
+<!-- STATUS TABS -->
+<div class="status-tabs">
+    <a href="/review?status=pending_review&category={{ filters.category }}&min_score={{ filters.min_score }}&sort={{ filters.sort }}"
+       class="status-tab {{ 'active' if filters.status == 'pending_review' else '' }}">
+        Pendientes <span class="count">{{ status_counts.get('pending_review', 0) }}</span>
+    </a>
+    <a href="/review?status=draft&category={{ filters.category }}&min_score={{ filters.min_score }}&sort={{ filters.sort }}"
+       class="status-tab {{ 'active' if filters.status == 'draft' else '' }}">
+        Borradores <span class="count">{{ status_counts.get('draft', 0) }}</span>
+    </a>
+    <a href="/review?status=approved&category={{ filters.category }}&min_score={{ filters.min_score }}&sort={{ filters.sort }}"
+       class="status-tab {{ 'active' if filters.status == 'approved' else '' }}">
+        Aprobados <span class="count">{{ status_counts.get('approved', 0) }}</span>
+    </a>
+    <a href="/review?status=published&category={{ filters.category }}&min_score={{ filters.min_score }}&sort={{ filters.sort }}"
+       class="status-tab {{ 'active' if filters.status == 'published' else '' }}">
+        Publicados <span class="count">{{ status_counts.get('published', 0) }}</span>
+    </a>
+    <a href="/review?status=rejected&category={{ filters.category }}&min_score={{ filters.min_score }}&sort={{ filters.sort }}"
+       class="status-tab {{ 'active' if filters.status == 'rejected' else '' }}">
+        Rechazados <span class="count">{{ status_counts.get('rejected', 0) }}</span>
+    </a>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+    <form method="get" action="/review" class="filters-form">
+        <input type="hidden" name="status" value="{{ filters.status }}">
+        <select name="category" class="filter-select">
+            <option value="0">Todas las categorías</option>
+            {% for cat in categories %}
+            <option value="{{ cat.id }}" {{ 'selected' if filters.category == cat.id else '' }}>{{ cat.name }}</option>
+            {% endfor %}
+        </select>
+        <select name="min_score" class="filter-select">
+            <option value="0.0" {{ 'selected' if filters.min_score == 0.0 else '' }}>Toda calidad</option>
+            <option value="0.5" {{ 'selected' if filters.min_score == 0.5 else '' }}>Q ≥ 0.5</option>
+            <option value="0.7" {{ 'selected' if filters.min_score == 0.7 else '' }}>Q ≥ 0.7</option>
+            <option value="0.8" {{ 'selected' if filters.min_score == 0.8 else '' }}>Q ≥ 0.8</option>
+            <option value="0.9" {{ 'selected' if filters.min_score == 0.9 else '' }}>Q ≥ 0.9</option>
+        </select>
+        <select name="sort" class="filter-select">
+            <option value="newest" {{ 'selected' if filters.sort == 'newest' else '' }}>Más recientes</option>
+            <option value="oldest" {{ 'selected' if filters.sort == 'oldest' else '' }}>Más antiguos</option>
+            <option value="quality_desc" {{ 'selected' if filters.sort == 'quality_desc' else '' }}>Mayor calidad</option>
+            <option value="quality_asc" {{ 'selected' if filters.sort == 'quality_asc' else '' }}>Menor calidad</option>
+        </select>
+        <button type="submit" class="btn btn-sm">Filtrar</button>
+    </form>
+
+    <!-- Bulk actions -->
+    {% if articles %}
+    <div class="bulk-actions">
+        <button onclick="bulkAction('publish', 'Publicar TODOS los artículos filtrados?')" class="btn btn-sm btn-green">Publicar Todo</button>
+        <button onclick="bulkAction('reject', 'Rechazar TODOS los artículos filtrados?')" class="btn btn-sm btn-red">Rechazar Todo</button>
+    </div>
+    {% endif %}
+</div>
+
+<!-- ARTICLE LIST -->
+{% if articles %}
+<div class="article-list">
+    {% for a in articles %}
+    <a href="/article/{{ a.id }}" class="list-article-item">
+        {% if a.image_url %}
+        <div class="list-article-thumb">
+            <img src="{{ a.image_url }}" alt="" loading="lazy"
+                 onerror="this.style.display='none'">
+        </div>
+        {% endif %}
+        <div class="list-article-info">
+            <div class="list-article-title">{{ a.title }}</div>
+            <div class="list-article-meta">
+                {% if a.category_rel %}
+                <span class="cat-tag">{{ a.category_rel.name }}</span>
+                {% endif %}
+                <span class="quality-badge quality-{{ 'high' if a.quality_score >= 0.7 else ('mid' if a.quality_score >= 0.4 else 'low') }}">
+                    Q: {{ a.quality_score|round(2) }}
+                </span>
+                <span>{{ a.language|upper }}</span>
+                <span>{{ a.created_at.strftime('%d %b %H:%M') if a.created_at else '' }}</span>
+                {% if a.is_breaking %}<span class="breaking-tag">⚡ BREAKING</span>{% endif %}
+                {% if a.is_featured %}<span class="featured-tag">⭐ FEATURED</span>{% endif %}
+            </div>
+        </div>
+        <div class="list-article-action">
+            <span class="status-pill status-{{ 'green' if a.status == 'published' else ('amber' if a.status == 'pending_review' else ('blue' if a.status == 'approved' else 'red')) }}">
+                {{ a.status }}
+            </span>
+            →
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+    <h2>Sin artículos</h2>
+    <p>No hay artículos con los filtros actuales.</p>
+</div>
+{% endif %}
+
+<script>
+function bulkAction(action, message) {
+    if (!confirm(message)) return;
+    const params = new URLSearchParams();
+    params.append('action', action);
+    const urlParams = new URLSearchParams(window.location.search);
+    params.append('status_filter', urlParams.get('status') || 'pending_review');
+    params.append('min_score', urlParams.get('min_score') || '0.0');
+    params.append('category_id', urlParams.get('category') || '0');
+
+    fetch('/bulk/action', {method: 'POST', body: params})
+        .then(r => r.json())
+        .then(data => {
+            alert(`${data.affected} artículo(s) ${action === 'publish' ? 'publicados' : 'rechazados'}`);
+            location.reload();
+        })
+        .catch(err => alert('Error: ' + err));
+}
+</script>
+{% endblock %}

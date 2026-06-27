@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% set active_tab = 'dashboard' %}
+{% set pending_review_count = pending_review %}
+{% set page_title = 'Dashboard' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Dashboard</h1>
+    <div class="page-actions">
+        <a href="/review?status=pending_review" class="btn btn-primary">Revisar cola ({{ pending_review }})</a>
+    </div>
+</div>
+
+<!-- STATS GRID -->
+<div class="stats-grid">
+    <div class="stat-card stat-blue">
+        <div class="stat-label">Raw Articles</div>
+        <div class="stat-value">{{ total_raw }}</div>
+        <div class="stat-sub">{{ pending_scrape }} pendientes, {{ processing }} procesando</div>
+    </div>
+    <div class="stat-card stat-amber">
+        <div class="stat-label">Pendiente Revisión</div>
+        <div class="stat-value">{{ pending_review }}</div>
+        <div class="stat-sub">Calidad promedio: {{ avg_quality }}</div>
+    </div>
+    <div class="stat-card stat-green">
+        <div class="stat-label">Publicados</div>
+        <div class="stat-value">{{ published }}</div>
+        <div class="stat-sub">{{ approved if approved is defined else 0 }} aprobados</div>
+    </div>
+    <div class="stat-card stat-purple">
+        <div class="stat-label">Total Artículos</div>
+        <div class="stat-value">{{ total_articles }}</div>
+        <div class="stat-sub">{{ drafts }} borradores</div>
+    </div>
+</div>
+
+<!-- TWO COLUMN: Pipeline Runs + Sources -->
+<div class="dash-columns">
+    <div class="dash-panel">
+        <h2 class="panel-title">Pipeline Runs</h2>
+        {% if runs %}
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Inicio</th>
+                    <th>Procesados</th>
+                    <th>Éxito</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for run in runs %}
+                <tr>
+                    <td><span class="tag-run">{{ run.run_type }}</span></td>
+                    <td>{{ run.started_at.strftime('%d %b %H:%M') if run.started_at else '—' }}</td>
+                    <td>{{ run.articles_processed or 0 }}</td>
+                    <td>{{ run.articles_succeeded or 0 }}</td>
+                    <td>
+                        {% if run.status == 'completed' %}
+                        <span class="status-pill status-green">✓</span>
+                        {% elif run.status == 'running' %}
+                        <span class="status-pill status-amber">⟳</span>
+                        {% else %}
+                        <span class="status-pill status-red">✗</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="empty-note">Sin ejecuciones de pipeline todavía.</p>
+        {% endif %}
+    </div>
+
+    <div class="dash-panel">
+        <h2 class="panel-title">Fuentes</h2>
+        <table class="data-table">
+            <thead>
+                <tr><th>Fuente</th><th>Dominio</th><th>Artículos</th><th>Activa</th></tr>
+            </thead>
+            <tbody>
+                {% for s in source_stats %}
+                <tr>
+                    <td>{{ s.name }}</td>
+                    <td><a href="https://{{ s.domain }}" target="_blank" style="color:#667eea;">{{ s.domain }}</a></td>
+                    <td>{{ s.count }}</td>
+                    <td>{{ '✅' if s.active else '⛔' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- RECENT PENDING -->
+{% if recent_pending %}
+<div class="dash-panel" style="margin-top: 1.5rem;">
+    <h2 class="panel-title">Recientes para Revisión</h2>
+    <div class="article-list">
+        {% for a in recent_pending %}
+        <a href="/article/{{ a.id }}" class="list-article-item">
+            <div class="list-article-info">
+                <div class="list-article-title">{{ a.title }}</div>
+                <div class="list-article-meta">
+                    <span class="quality-badge quality-{{ 'high' if a.quality_score >= 0.7 else ('mid' if a.quality_score >= 0.4 else 'low') }}">
+                        Q: {{ a.quality_score|round(2) }}
+                    </span>
+                    <span>{{ a.created_at.strftime('%d %b %H:%M') if a.created_at else '' }}</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% set active_tab = 'review' %}
+{% set pending_review_count = 0 %}
+{% set page_title = 'Review Article' %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <a href="/review" class="back-link">← Volver</a>
+        <h1>Review Article #{{ article.id }}</h1>
+    </div>
+    <div class="page-actions">
+        <span class="quality-badge quality-{{ 'high' if article.quality_score >= 0.7 else ('mid' if article.quality_score >= 0.4 else 'low') }} quality-lg">
+            Quality: {{ article.quality_score|round(2) }}
+        </span>
+        <span class="status-pill status-{{ 'green' if article.status == 'published' else ('amber' if article.status == 'pending_review' else 'red') }}">
+            {{ article.status }}
+        </span>
+    </div>
+</div>
+
+{% if request.query_params.get('saved') %}
+<div class="alert-success">✓ Cambios guardados</div>
+{% endif %}
+
+<!-- SIDEBY-SIDE: Original vs Rewritten -->
+{% if raw %}
+<div class="side-by-side">
+    <div class="compare-panel">
+        <div class="compare-header">
+            <h3>Original ({{ source.name if source else 'Source' }})</h3>
+            <a href="{{ raw.source_url }}" target="_blank" class="btn btn-sm">Abrir fuente ↗</a>
+        </div>
+        <div class="compare-body">
+            <h4>{{ raw.title }}</h4>
+            <div class="raw-text">{{ raw.extracted_text[:3000] }}{% if raw.extracted_text|length > 3000 %}...{% endif %}</div>
+        </div>
+    </div>
+
+    <div class="compare-panel">
+        <div class="compare-header">
+            <h3>Rewritten (Latinos.org)</h3>
+        </div>
+        <div class="compare-body">
+            <h4>{{ article.title }}</h4>
+            <div class="raw-text">{{ article.body_markdown[:3000] }}{% if article.body_markdown|length > 3000 %}...{% endif %}</div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- EDIT FORM -->
+<form method="post" action="/article/{{ article.id }}/save" class="edit-form">
+    <div class="form-row">
+        <label>Título (Español)</label>
+        <input type="text" name="title" value="{{ article.title }}" class="form-input" required>
+    </div>
+
+    <div class="form-row">
+        <label>Slug</label>
+        <input type="text" name="slug" value="{{ article.slug }}" class="form-input" required>
+    </div>
+
+    <div class="form-row form-row-2col">
+        <div>
+            <label>Categoría</label>
+            <select name="category_id" class="form-input">
+                {% for cat in categories %}
+                <option value="{{ cat.id }}" {{ 'selected' if article.category_id == cat.id else '' }}>{{ cat.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Tags (separados por comas)</label>
+            <input type="text" name="tags" value="{{ tags|join(', ') }}" class="form-input">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label>Excerpt</label>
+        <textarea name="excerpt" class="form-textarea" rows="2">{{ article.excerpt or '' }}</textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Meta Description</label>
+        <textarea name="meta_description" class="form-textarea" rows="2">{{ article.meta_description or '' }}</textarea>
+    </div>
+
+    <div class="form-row">
+        <label>Cuerpo (Markdown)</label>
+        <textarea name="body_markdown" class="form-textarea form-textarea-lg" rows="20">{{ article.body_markdown }}</textarea>
+    </div>
+
+    {% if article.body_markdown_en %}
+    <div class="form-row">
+        <label>Versión en Inglés (preview)</label>
+        <div class="raw-text" style="max-height: 200px; overflow-y: auto;">{{ article.body_markdown_en }}</div>
+    </div>
+    {% endif %}
+
+    <div class="form-row form-row-inline">
+        <label><input type="checkbox" name="is_featured" value="True" {{ 'checked' if article.is_featured else '' }}> ⭐ Destacado</label>
+        <label><input type="checkbox" name="is_breaking" value="True" {{ 'checked' if article.is_breaking else '' }}> ⚡ Última Hora</label>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">💾 Guardar Cambios</button>
+    </div>
+</form>
+
+<!-- ACTION BUTTONS -->
+<div class="action-bar">
+    {% if article.status != 'published' %}
+    <form method="post" action="/article/{{ article.id }}/approve" style="display:inline;">
+        <button type="submit" name="publish_now" value="True" class="btn btn-green">✅ Aprobar y Publicar</button>
+    </form>
+    <form method="post" action="/article/{{ article.id }}/approve" style="display:inline;">
+        <button type="submit" class="btn btn-blue">👍 Aprobar (sin publicar)</button>
+    </form>
+    {% endif %}
+    {% if article.status == 'approved' %}
+    <form method="post" action="/article/{{ article.id }}/publish" style="display:inline;">
+        <button type="submit" class="btn btn-green">📢 Publicar Ahora</button>
+    </form>
+    {% endif %}
+    {% if article.status != 'rejected' and article.status != 'published' %}
+    <form method="post" action="/article/{{ article.id }}/reject" style="display:inline;"
+          onsubmit="return confirm('¿Rechazar este artículo?')">
+        <button type="submit" class="btn btn-red">🗑️ Rechazar</button>
+    </form>
+    {% endif %}
+    <form method="post" action="/article/{{ article.id }}/delete" style="display:inline;"
+          onsubmit="return confirm('¿ELIMINAR permanentemente este artículo?')">
+        <button type="submit" class="btn btn-sm btn-red">Eliminar</button>
+    </form>
+</div>
+
+{% if article.image_url %}
+<div class="image-preview">
+    <label>Imagen destacada:</label>
+    <img src="{{ article.image_url }}" alt="{{ article.image_alt or '' }}" style="max-width:400px;border-radius:8px;">
+</div>
+{% endif %}
+{% endblock %}

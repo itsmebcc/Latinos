@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set active_tab = 'raw' %}
+{% set pending_review_count = 0 %}
+{% set page_title = 'Raw Articles' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Raw Articles ({{ total }})</h1>
+</div>
+
+<div class="status-tabs">
+    <a href="/raw-articles?status=discovered" class="status-tab {{ 'active' if status == 'discovered' else '' }}">Discovered</a>
+    <a href="/raw-articles?status=processing" class="status-tab {{ 'active' if status == 'processing' else '' }}">Processing</a>
+    <a href="/raw-articles?status=rewritten" class="status-tab {{ 'active' if status == 'rewritten' else '' }}">Rewritten</a>
+    <a href="/raw-articles?status=all" class="status-tab {{ 'active' if status == 'all' else '' }}">All</a>
+</div>
+
+<table class="data-table">
+    <thead>
+        <tr><th>ID</th><th>Fuente</th><th>Título</th><th>Categoría</th><th>Fecha</th><th>Estado</th></tr>
+    </thead>
+    <tbody>
+        {% for raw in raws %}
+        <tr>
+            <td>{{ raw.id }}</td>
+            <td>{{ source_map.get(raw.source_id, '?') }}</td>
+            <td style="max-width:400px;overflow:hidden;text-overflow:ellipsis;">{{ raw.title[:80] }}</td>
+            <td>{{ raw.category_hint or '—' }}</td>
+            <td>{{ raw.publish_date.strftime('%d %b %Y') if raw.publish_date else '—' }}</td>
+            <td><span class="status-pill status-{{ 'amber' if raw.status == 'discovered' else ('blue' if raw.status == 'processing' else 'green') }}">{{ raw.status }}</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if total_pages > 1 %}
+<div class="pagination">
+    {% if page > 1 %}<a href="/raw-articles?status={{ status }}&page={{ page - 1 }}" class="page-btn">←</a>{% endif %}
+    <span class="page-info">{{ page }} / {{ total_pages }}</span>
+    {% if page < total_pages %}<a href="/raw-articles?status={{ status }}&page={{ page + 1 }}" class="page-btn">→</a>{% endif %}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title|default('Admin') }} — Latinos.org</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <span style="color:#fff;font-weight:900;font-size:1.3rem;">Latinos<span style="color:#C8102E;">.org</span></span>
+            <div style="font-size:0.7rem;color:#888;margin-top:0.15rem;">ADMIN PORTAL</div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="/dashboard" class="nav-item {{ 'active' if active_tab == 'dashboard' else '' }}">
+                📊 Dashboard
+            </a>
+            <a href="/review?status=pending_review" class="nav-item {{ 'active' if active_tab == 'review' else '' }}">
+                ✍️ Review Queue
+                {% if pending_review_count is defined and pending_review_count > 0 %}
+                <span class="badge">{{ pending_review_count }}</span>
+                {% endif %}
+            </a>
+            <a href="/review?status=published" class="nav-item {{ 'active' if active_tab == 'published' else '' }}">
+                ✅ Publicados
+            </a>
+            <a href="/review?status=rejected" class="nav-item">
+                🗑️ Rechazados
+            </a>
+            <a href="/raw-articles" class="nav-item {{ 'active' if active_tab == 'raw' else '' }}">
+                📥 Raw Articles
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="/" target="_blank" class="nav-item">🌐 Ver Sitio</a>
+            <a href="/logout" class="nav-item">🚪 Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+        {% block content %}{% endblock %}
+    </main>
+</div>
+<script src="/static/js/admin.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

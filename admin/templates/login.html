@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Latinos.org</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body class="login-body">
+    <div class="login-card">
+        <div class="login-logo">
+            <span style="font-size: 2rem; font-weight: 900; color: #C8102E;">Latinos</span><span style="font-size: 2rem; font-weight: 900; color: #1a1a2e;">.org</span>
+            <p style="color: #6b6b6b; margin-top: 0.25rem; font-size: 0.9rem;">Panel de Administración</p>
+        </div>
+
+        {% if error %}
+        <div class="login-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" action="/login" class="login-form">
+            <input type="password" name="password" placeholder="Contraseña" autofocus
+                   class="login-input" required>
+            <button type="submit" class="login-btn">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
