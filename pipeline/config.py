@@ -22,7 +22,7 @@ CLOAKBROWSER_PATH = Path(os.environ.get(
 ))
 
 # === vLLM ===
-VLLM_BASE_URL = os.environ.get("VLLM_BASE_URL", "http://localhost:8001/v1")
+VLLM_BASE_URL = os.environ.get("VLLM_BASE_URL", "http://100.127.216.5:8000/v1")
 VLLM_MODEL = os.environ.get("VLLM_MODEL", "qwen3.5-27b")
 VLLM_API_KEY = os.environ.get("VLLM_API_KEY", "not-needed")  # vLLM doesn't require auth
 

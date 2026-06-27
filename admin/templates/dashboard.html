@@ -7,9 +7,13 @@
 <div class="page-header">
     <h1>Dashboard</h1>
     <div class="page-actions">
+        <button type="button" class="btn btn-blue" onclick="runPublisher(false)">📦 Preparar Deploy</button>
+        <button type="button" class="btn btn-green" onclick="runPublisher(true)">🚀 Push a Railway</button>
         <a href="/review?status=pending_review" class="btn btn-primary">Revisar cola ({{ pending_review }})</a>
     </div>
 </div>
+
+<div id="publisher-status" class="publisher-status" style="display:none;"></div>
 
 <!-- STATS GRID -->
 <div class="stats-grid">
@@ -116,4 +120,39 @@
     </div>
 </div>
 {% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function runPublisher(push) {
+    const status = document.getElementById('publisher-status');
+    status.style.display = 'block';
+    status.className = 'publisher-status publisher-status-running';
+    status.textContent = push
+        ? '🚀 Publicando, optimizando imágenes, haciendo commit y push a GitHub...'
+        : '📦 Publicando, optimizando imágenes y preparando commit local...';
+
+    const form = new FormData();
+    form.append('push', push ? 'True' : 'False');
+
+    try {
+        const resp = await fetch('/publisher/run', { method: 'POST', body: form });
+        const data = await resp.json();
+        if (data.ok) {
+            status.className = 'publisher-status publisher-status-ok';
+            status.innerHTML = `✅ ${data.message}<br>
+                Artículos publicados ahora: <strong>${data.articles_published}</strong> ·
+                Imágenes optimizadas: <strong>${data.images_downloaded}</strong> ·
+                Commit: <strong>${data.commit_sha || 'sin cambios'}</strong>`;
+        } else {
+            status.className = 'publisher-status publisher-status-error';
+            status.textContent = `❌ ${data.error || 'Publisher failed'}`;
+        }
+    } catch (err) {
+        status.className = 'publisher-status publisher-status-error';
+        status.textContent = `❌ ${err}`;
+    }
+}
+</script>
 {% endblock %}

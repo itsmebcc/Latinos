@@ -5,7 +5,9 @@ Dashboard, review queue, article editing, approval, publishing.
 
 import json
 import re
+import sys
 from datetime import datetime
+from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, Request, HTTPException, Form, Query
@@ -17,6 +19,8 @@ from auth import check_auth, require_auth, get_session_token, verify_password, c
 from models import Article, Category, RawArticle, Source, PipelineRun
 
 router = APIRouter()
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PIPELINE_DIR = PROJECT_ROOT / "pipeline"
 
 
 def get_db():
@@ -80,6 +84,7 @@ async def dashboard(request: Request):
     pending_review = db.query(Article).filter(Article.status == "pending_review").count()
     published = db.query(Article).filter(Article.status == "published").count()
     drafts = db.query(Article).filter(Article.status == "draft").count()
+    approved = db.query(Article).filter(Article.status == "approved").count()
 
     # Average quality
     avg_quality = db.query(func.avg(Article.quality_score)).filter(
@@ -115,6 +120,7 @@ async def dashboard(request: Request):
         "pending_review": pending_review,
         "published": published,
         "drafts": drafts,
+        "approved": approved,
         "avg_quality": round(avg_quality, 2),
         "runs": runs,
         "source_stats": source_stats,
@@ -411,6 +417,57 @@ async def publish_all_approved(request: Request):
     db.close()
 
     return JSONResponse({"published": count})
+
+
+# ============= RAILWAY SYNC / PUBLISHER =============
+
+@router.post("/publisher/run")
+async def run_publisher_from_admin(
+    request: Request,
+    push: bool = Form(False),
+):
+    """
+    Run the Phase 5 publisher from the local admin portal.
+
+    This publishes approved/scheduled articles, downloads article images into
+    website/static/images/articles, writes publish_manifest.json, commits the
+    deployable artifacts, and optionally pushes to GitHub to trigger Railway.
+    """
+    require_auth(request)
+    if str(PIPELINE_DIR) not in sys.path:
+        sys.path.insert(0, str(PIPELINE_DIR))
+
+    from publisher import run_publish
+
+    try:
+        result = run_publish(download_images=True, commit=True, push=push)
+        return JSONResponse({
+            "ok": True,
+            "articles_published": result.articles_published,
+            "articles_processed": result.articles_processed,
+            "images_downloaded": result.images_downloaded,
+            "images_skipped": result.images_skipped,
+            "images_failed": result.images_failed,
+            "committed": result.committed,
+            "pushed": result.pushed,
+            "commit_sha": result.commit_sha,
+            "message": result.message,
+        })
+    except Exception as exc:
+        return JSONResponse({
+            "ok": False,
+            "error": f"{type(exc).__name__}: {exc}",
+        }, status_code=500)
+
+
+@router.get("/publisher/manifest")
+async def publisher_manifest(request: Request):
+    """Return the latest local publish manifest."""
+    require_auth(request)
+    manifest_path = PROJECT_ROOT / "website" / "data" / "publish_manifest.json"
+    if not manifest_path.exists():
+        return JSONResponse({"ok": False, "error": "No publish manifest has been generated yet."}, status_code=404)
+    return JSONResponse(json.loads(manifest_path.read_text(encoding="utf-8")))
 
 
 # ============= RAW ARTICLES =============

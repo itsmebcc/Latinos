@@ -42,6 +42,30 @@ pip install -r requirements.txt
 uvicorn main:app --reload --port 9097
 ```
 
+### Local Admin Portal
+```bash
+cd admin
+../website/.venv/bin/uvicorn main:app --reload --port 9098
+```
+
+Default local admin password: set `ADMIN_PASSWORD`, or use the local-development default.
+
+### Publisher / Railway Sync
+```bash
+# Publish approved articles, download/optimize images, write manifest
+python -m pipeline.publisher
+
+# Commit deployable DB/images/manifest locally
+python -m pipeline.publisher --commit
+
+# Commit and push deployable artifacts to GitHub, triggering Railway auto-deploy
+python -m pipeline.publisher --push
+```
+
+The publisher only stages deployable website artifacts:
+`website/data/latinos.db`, `website/data/publish_manifest.json`, and
+`website/static/images/articles/`.
+
 ## Deployment
 Pushes to `main` branch trigger automatic Railway rebuild.
 
