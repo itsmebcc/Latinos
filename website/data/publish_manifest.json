@@ -1,0 +1,103 @@
+{
+  "generated_at": "2026-06-27T18:17:48Z",
+  "database": "website/data/latinos.db",
+  "counts": {
+    "published": 14,
+    "pending_review": 4,
+    "approved": 0
+  },
+  "latest_published": [
+    {
+      "id": 13,
+      "slug": "mls-y-mundial-de-clubes-la-ruta-via-concacaf-champions-cup",
+      "title": "Concacaf Champions Cup: el nuevo pasaporte de la MLS al Mundial de Clubes",
+      "quality_score": 0.95,
+      "published_at": "2026-06-27T17:59:48.191988",
+      "image_url": "/static/images/articles/13-mls-y-mundial-de-clubes-la-ruta-via-concacaf-champions-cup-46feb588cccc.webp"
+    },
+    {
+      "id": 16,
+      "slug": "laFC-champions-cup-2025-vs-colorado-rapids",
+      "title": "Los Ángeles a toda marcha: LAFC busca gloria continental ante Rapids y mira a la Liga MX",
+      "quality_score": 0.85,
+      "published_at": "2026-06-27T17:59:36.027454",
+      "image_url": "/static/images/articles/16-lafc-champions-cup-2025-vs-colorado-rapids-4f350d6df7c1.webp"
+    },
+    {
+      "id": 3,
+      "slug": "comunidad-latina-california-ayuda-venezuela-terremoto",
+      "title": "Comunidad Latina en California se moviliza para ayudar a víctimas del terremoto en Venezuela",
+      "quality_score": 0.9,
+      "published_at": "2026-06-27T15:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 1,
+      "slug": "mexico-historia-mundial-2026-fase-grupos-perfecta",
+      "title": "La Selección Mexicana hace historia en el Mundial 2026 con fase de grupos perfecta",
+      "quality_score": 0.9,
+      "published_at": "2026-06-27T14:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 2,
+      "slug": "bad-bunny-gira-mundial-taquillas-2026",
+      "title": "Bad Bunny vuelve a reventar las taquillas con su gira mundial",
+      "quality_score": 0.9,
+      "published_at": "2026-06-27T11:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 4,
+      "slug": "neymar-regreso-seleccion-brasilera-2026",
+      "title": "Neymar regresa a la selección brasileña tras casi tres años de ausencia",
+      "quality_score": 0.9,
+      "published_at": "2026-06-27T08:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 5,
+      "slug": "tradiciones-familiares-verano-latino",
+      "title": "Las tradiciones familiares que definen el verano Latino",
+      "quality_score": 0.9,
+      "published_at": "2026-06-27T04:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 6,
+      "slug": "shakira-ceremonia-inaugural-mundial-2026",
+      "title": "Shakira encabezará la ceremonia inaugural del Mundial 2026",
+      "quality_score": 0.9,
+      "published_at": "2026-06-26T22:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 7,
+      "slug": "debate-tps-venezuela-crisis-humanitaria-2026",
+      "title": "Debate sobre el TPS se reaviva tras crisis humanitaria en Venezuela",
+      "quality_score": 0.9,
+      "published_at": "2026-06-26T16:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 8,
+      "slug": "auge-cine-latino-hollywood-2026",
+      "title": "El auge del cine Latino: las películas que están cambiando Hollywood",
+      "quality_score": 0.9,
+      "published_at": "2026-06-26T10:54:32.444340",
+      "image_url": null
+    }
+  ],
+  "last_run": {
+    "articles_published": 0,
+    "articles_processed": 14,
+    "images_downloaded": 0,
+    "images_skipped": 14,
+    "images_failed": 0,
+    "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
+    "committed": false,
+    "pushed": false,
+    "commit_sha": null,
+    "message": ""
+  }
+}
