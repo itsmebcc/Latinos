@@ -6,6 +6,7 @@ Dashboard, review queue, article editing, approval, publishing.
 import json
 import re
 import sys
+from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
@@ -108,6 +109,16 @@ async def dashboard(request: Request):
         Article.status == "pending_review"
     ).order_by(desc(Article.created_at)).limit(5).all()
 
+    automation_report = None
+    try:
+        if str(PIPELINE_DIR) not in sys.path:
+            sys.path.insert(0, str(PIPELINE_DIR))
+        import importlib
+        automation = importlib.import_module("automation")
+        automation_report = automation.load_latest_report()
+    except Exception:
+        automation_report = None
+
     db.close()
 
     return request.app.state.templates.TemplateResponse("dashboard.html", {
@@ -125,6 +136,7 @@ async def dashboard(request: Request):
         "runs": runs,
         "source_stats": source_stats,
         "recent_pending": recent_pending,
+        "automation_report": automation_report,
     })
 
 
@@ -468,6 +480,55 @@ async def publisher_manifest(request: Request):
     if not manifest_path.exists():
         return JSONResponse({"ok": False, "error": "No publish manifest has been generated yet."}, status_code=404)
     return JSONResponse(json.loads(manifest_path.read_text(encoding="utf-8")))
+
+
+# ============= PHASE 7 AUTOMATION =============
+
+def _load_automation_module():
+    """Import pipeline.automation while keeping admin/website import paths stable."""
+    if str(PIPELINE_DIR) not in sys.path:
+        sys.path.insert(0, str(PIPELINE_DIR))
+    import importlib
+    return importlib.import_module("automation")
+
+
+@router.get("/automation/status")
+async def automation_status(request: Request, check_llm: bool = Query(False)):
+    """Return Phase 7 local automation health and latest report."""
+    require_auth(request)
+    automation = _load_automation_module()
+    payload = await automation.status_payload(check_llm=check_llm)
+    return JSONResponse(payload)
+
+
+@router.post("/automation/run")
+async def automation_run(
+    request: Request,
+    mode: str = Form("rss"),
+    dry_run: bool = Form(True),
+    rewrite_limit: int = Form(0),
+    auto_approve_min_score: Optional[float] = Form(None),
+    publish: bool = Form(False),
+    push: bool = Form(False),
+):
+    """Run or preview the Phase 7 local automation workflow."""
+    require_auth(request)
+    if mode not in {"rss", "full", "none"}:
+        return JSONResponse({"ok": False, "error": "Invalid automation mode."}, status_code=400)
+
+    automation = _load_automation_module()
+    result = await automation.run_automation(
+        mode=mode,
+        dry_run=dry_run,
+        rewrite_limit=rewrite_limit,
+        auto_approve_min_score=auto_approve_min_score,
+        publish=publish,
+        push=push,
+        check_llm=(rewrite_limit != 0),
+    )
+    payload = asdict(result)
+    payload["ok"] = result.status in {"completed", "completed_with_errors"}
+    return JSONResponse(payload, status_code=200 if payload["ok"] else 500)
 
 
 # ============= RAW ARTICLES =============

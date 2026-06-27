@@ -66,6 +66,25 @@ The publisher only stages deployable website artifacts:
 `website/data/latinos.db`, `website/data/publish_manifest.json`, and
 `website/static/images/articles/`.
 
+### Phase 7 Automation
+```bash
+# Health/status snapshot (DB counts, source config, optional vLLM check)
+python -m pipeline.automation --health --json
+
+# Safe dry-run plan; writes pipeline/runs/latest.json but does not mutate DB/git
+python -m pipeline.automation --dry-run --mode rss --auto-approve-min-score 0.85 --json
+
+# Run RSS ingestion, skip LLM, then publish/export locally without pushing
+python -m pipeline.automation --run --mode rss --rewrite-limit 0 --publish --json
+
+# Full local automation with limited LLM rewriting and Railway push
+python -m pipeline.automation --run --mode rss --rewrite-limit 5 --auto-approve-min-score 0.85 --publish --push
+```
+
+The admin dashboard also exposes Phase 7 buttons for status checks, dry-runs,
+and a guarded RSS + publisher run. Automation reports are local-only JSON files
+under `pipeline/runs/` and are not deployed to Railway.
+
 ## Deployment
 Pushes to `main` branch trigger automatic Railway rebuild.
 

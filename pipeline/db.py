@@ -28,13 +28,14 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
-def init_db():
+def init_db(verbose: bool = True):
     """Initialize database tables."""
     with engine.connect() as conn:
         conn.execute(text("PRAGMA journal_mode=WAL"))
         conn.execute(text("PRAGMA foreign_keys=ON"))
     Base.metadata.create_all(engine)
-    print(f"[Pipeline DB] Connected to {DB_PATH}")
+    if verbose:
+        print(f"[Pipeline DB] Connected to {DB_PATH}")
 
 
 def get_session():

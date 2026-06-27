@@ -14,6 +14,33 @@
 </div>
 
 <div id="publisher-status" class="publisher-status" style="display:none;"></div>
+<div id="automation-status" class="publisher-status" style="display:none;"></div>
+
+<!-- PHASE 7 AUTOMATION -->
+<div class="dash-panel automation-panel" style="margin-bottom: 1.5rem;">
+    <div class="automation-header">
+        <div>
+            <h2 class="panel-title">Phase 7 Automation</h2>
+            <p class="automation-copy">Orquesta scrape → rewrite → review threshold → publish/export. El modo seguro por defecto es dry-run.</p>
+        </div>
+        <div class="automation-actions">
+            <button type="button" class="btn btn-blue" onclick="checkAutomationStatus(false)">🩺 Estado</button>
+            <button type="button" class="btn btn-amber" onclick="runAutomationDryRun()">🧪 Dry Run</button>
+            <button type="button" class="btn btn-green" onclick="runAutomationRssPublish()">⚙️ RSS + Publisher</button>
+        </div>
+    </div>
+
+    {% if automation_report %}
+    <div class="automation-summary">
+        <span><strong>Último run:</strong> {{ automation_report.status }}</span>
+        <span><strong>Modo:</strong> {{ automation_report.mode }}</span>
+        <span><strong>Dry-run:</strong> {{ 'sí' if automation_report.dry_run else 'no' }}</span>
+        <span><strong>Reporte:</strong> {{ automation_report.report_path }}</span>
+    </div>
+    {% else %}
+    <p class="empty-note">Sin reportes de automatización todavía. Ejecuta un dry-run para generar el primero.</p>
+    {% endif %}
+</div>
 
 <!-- STATS GRID -->
 <div class="stats-grid">
@@ -152,6 +179,68 @@ async function runPublisher(push) {
     } catch (err) {
         status.className = 'publisher-status publisher-status-error';
         status.textContent = `❌ ${err}`;
+    }
+}
+
+function setAutomationStatus(className, html) {
+    const status = document.getElementById('automation-status');
+    status.style.display = 'block';
+    status.className = `publisher-status ${className}`;
+    status.innerHTML = html;
+}
+
+async function checkAutomationStatus(checkLlm) {
+    setAutomationStatus('publisher-status-running', '🩺 Revisando estado de automatización...');
+    try {
+        const resp = await fetch(`/automation/status?check_llm=${checkLlm ? 'true' : 'false'}`);
+        const data = await resp.json();
+        if (!data.ok) throw new Error(data.error || 'status failed');
+        const counts = data.counts || {};
+        const health = data.health || {};
+        setAutomationStatus('publisher-status-ok', `✅ Estado OK · Raw: <strong>${counts.raw_total}</strong> · Descubiertos: <strong>${counts.raw_discovered}</strong> · Pendiente revisión: <strong>${counts.pending_review}</strong> · Publicados: <strong>${counts.published}</strong> · Git dirty: <strong>${health.git_dirty ? 'sí' : 'no'}</strong>`);
+    } catch (err) {
+        setAutomationStatus('publisher-status-error', `❌ ${err}`);
+    }
+}
+
+async function runAutomationDryRun() {
+    setAutomationStatus('publisher-status-running', '🧪 Ejecutando dry-run seguro...');
+    const form = new FormData();
+    form.append('mode', 'rss');
+    form.append('dry_run', 'True');
+    form.append('rewrite_limit', '0');
+    form.append('auto_approve_min_score', '0.85');
+    form.append('publish', 'False');
+    form.append('push', 'False');
+
+    try {
+        const resp = await fetch('/automation/run', { method: 'POST', body: form });
+        const data = await resp.json();
+        if (!data.ok) throw new Error(data.errors ? data.errors.join('; ') : 'automation failed');
+        const preview = (data.steps || []).find(s => s.name === 'auto_approve_preview');
+        setAutomationStatus('publisher-status-ok', `✅ Dry-run completado · Candidatos auto-aprobables Q≥0.85: <strong>${preview ? preview.count : 0}</strong> · Reporte: <strong>${data.report_path}</strong>`);
+    } catch (err) {
+        setAutomationStatus('publisher-status-error', `❌ ${err}`);
+    }
+}
+
+async function runAutomationRssPublish() {
+    if (!confirm('Ejecutar RSS scrape + publisher local sin push? Esto puede modificar la DB local y crear un commit de artefactos si hay cambios.')) return;
+    setAutomationStatus('publisher-status-running', '⚙️ Ejecutando RSS scrape + publisher local...');
+    const form = new FormData();
+    form.append('mode', 'rss');
+    form.append('dry_run', 'False');
+    form.append('rewrite_limit', '0');
+    form.append('publish', 'True');
+    form.append('push', 'False');
+
+    try {
+        const resp = await fetch('/automation/run', { method: 'POST', body: form });
+        const data = await resp.json();
+        if (!data.ok) throw new Error(data.errors ? data.errors.join('; ') : 'automation failed');
+        setAutomationStatus('publisher-status-ok', `✅ Automatización completada · Estado: <strong>${data.status}</strong> · Reporte: <strong>${data.report_path}</strong>`);
+    } catch (err) {
+        setAutomationStatus('publisher-status-error', `❌ ${err}`);
     }
 }
 </script>

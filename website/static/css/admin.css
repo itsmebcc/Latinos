@@ -443,6 +443,7 @@ a:hover { text-decoration: underline; }
 .btn-primary:hover { background: var(--accent-hover); }
 .btn-green { background: var(--green); color: #000; border-color: var(--green); }
 .btn-blue { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-amber { background: var(--amber); color: #000; border-color: var(--amber); }
 .btn-red { background: var(--red); color: #fff; border-color: var(--red); }
 
 /* === STATUS TABS === */
@@ -669,9 +670,51 @@ a:hover { text-decoration: underline; }
 }
 
 .publisher-status-error {
-    background: rgba(255, 82, 82, 0.12);
+    background: rgba(255, 77, 109, 0.1);
+    border: 1px solid var(--red);
     color: var(--red);
-    border-color: rgba(255, 82, 82, 0.35);
+}
+
+/* === PHASE 7 AUTOMATION === */
+.automation-panel {
+    border-color: rgba(102, 126, 234, 0.35);
+}
+
+.automation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.automation-copy {
+    color: var(--text-dim);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.automation-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.automation-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.automation-summary span {
+    padding: 0.35rem 0.6rem;
+    border-radius: var(--radius);
+    background: var(--bg-card);
 }
 
 /* === EMPTY STATES === */
