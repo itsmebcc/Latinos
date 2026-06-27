@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T20:09:12Z",
+  "generated_at": "2026-06-27T21:22:36Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 17,
@@ -7,46 +7,6 @@
     "approved": 0
   },
   "latest_published": [
-    {
-      "id": 14,
-      "slug": "rumor-nba-traspaso-doncic-davis-wemby-realidad-o-especulacion",
-      "title": "⚠️ **Nota importante antes de continuar:**",
-      "quality_score": 0.15,
-      "published_at": "2026-06-27T20:04:12.676194",
-      "image_url": "https://img.asmedia.epimg.net/resizer/v2/BDDZYQAHF5BYDBINTTA7HGSG4M.jpg?auth=9e84e43b21dca007b4d40785a13246126a74dd512a49174d3a7cd3f020a366be"
-    },
-    {
-      "id": 15,
-      "slug": "la-nba-no-no-quiere-apurar-su-expansion-tras-all-star",
-      "title": "Parece que has compartido el mismo fragmento de noticia varias veces. Te dejo una versión **limpia, consolidada y lista para usar**, junto con un breve análisis por si necesitas desarrollar el tema:",
-      "quality_score": 0.4,
-      "published_at": "2026-06-27T20:03:59.340186",
-      "image_url": "/static/images/articles/15-la-nba-no-no-quiere-apurar-su-expansion-tras-all-star-eb95d386b412.webp"
-    },
-    {
-      "id": 18,
-      "slug": "chase-adams-nuevo-haaland-futbol-juvenil-usa",
-      "title": ".U. consiguió su boleto al Mundial Sub-17 en Qatar con un récord histórico: anotó 22 goles en un solo partido de eliminatorias. En el centro de la acción, Chase Adams ha destacado como una de las nuevas joyas del fútbol estadounidense, comparado con Erling Haaland por su potente juego y gol natural.",
-      "quality_score": 0.5,
-      "published_at": "2026-06-27T20:03:02.340405",
-      "image_url": "https://img.asmedia.epimg.net/resizer/v2/5DEFWPSSLZGQNCJ7LTBU7TQVF4.jpeg?auth=a8c7e1e5118a0a4de80f39934c3f715ffa1bd0fd874dc553af57abbbc687d46f"
-    },
-    {
-      "id": 13,
-      "slug": "mls-y-mundial-de-clubes-la-ruta-via-concacaf-champions-cup",
-      "title": "Concacaf Champions Cup: el nuevo pasaporte de la MLS al Mundial de Clubes",
-      "quality_score": 0.95,
-      "published_at": "2026-06-27T17:59:48.191988",
-      "image_url": "/static/images/articles/13-mls-y-mundial-de-clubes-la-ruta-via-concacaf-champions-cup-46feb588cccc.webp"
-    },
-    {
-      "id": 16,
-      "slug": "laFC-champions-cup-2025-vs-colorado-rapids",
-      "title": "Los Ángeles a toda marcha: LAFC busca gloria continental ante Rapids y mira a la Liga MX",
-      "quality_score": 0.85,
-      "published_at": "2026-06-27T17:59:36.027454",
-      "image_url": "/static/images/articles/16-lafc-champions-cup-2025-vs-colorado-rapids-4f350d6df7c1.webp"
-    },
     {
       "id": 3,
       "slug": "comunidad-latina-california-ayuda-venezuela-terremoto",
@@ -86,14 +46,54 @@
       "quality_score": 0.9,
       "published_at": "2026-06-27T04:54:32.444340",
       "image_url": null
+    },
+    {
+      "id": 6,
+      "slug": "shakira-ceremonia-inaugural-mundial-2026",
+      "title": "Shakira encabezará la ceremonia inaugural del Mundial 2026",
+      "quality_score": 0.9,
+      "published_at": "2026-06-26T22:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 7,
+      "slug": "debate-tps-venezuela-crisis-humanitaria-2026",
+      "title": "Debate sobre el TPS se reaviva tras crisis humanitaria en Venezuela",
+      "quality_score": 0.9,
+      "published_at": "2026-06-26T16:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 8,
+      "slug": "auge-cine-latino-hollywood-2026",
+      "title": "El auge del cine Latino: las películas que están cambiando Hollywood",
+      "quality_score": 0.9,
+      "published_at": "2026-06-26T10:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 9,
+      "slug": "rosalia-gira-lux-tour-estados-unidos-2026",
+      "title": "Rosalía anuncia gira LUX Tour con paradas en Miami, Los Ángeles y Nueva York",
+      "quality_score": 0.9,
+      "published_at": "2026-06-26T04:54:32.444340",
+      "image_url": null
+    },
+    {
+      "id": 10,
+      "slug": "jugadoras-latinas-futbol-femenino-cambio",
+      "title": "Las jugadoras Latinas que están cambiando el fútbol femenino",
+      "quality_score": 0.9,
+      "published_at": "2026-06-25T16:54:32.444340",
+      "image_url": null
     }
   ],
   "last_run": {
     "articles_published": 0,
     "articles_processed": 17,
     "images_downloaded": 0,
-    "images_skipped": 15,
-    "images_failed": 2,
+    "images_skipped": 17,
+    "images_failed": 0,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
     "pushed": false,
