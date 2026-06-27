@@ -1,0 +1,163 @@
+# Latinos.org — Content Source Configuration
+# All 7 inspiration sites with their ingestion method and feed URLs.
+# Sites with RSS: direct feed parsing (fast, lightweight)
+# Sites without RSS: CloakBrowser scraping (JS rendering, anti-bot bypass)
+
+sources:
+
+  # ============================================================
+  # AS USA — Spanish sports news (RSS available)
+  # ============================================================
+  - name: "AS USA"
+    domain: "us.as.com"
+    site_type: "sports"
+    ingestion_method: "rss"
+    feeds:
+      - url: "https://feeds.as.com/mrss-s/pages/as/site/us.as.com/portada/"
+        category_hint: "deportes"
+      - url: "https://feeds.as.com/mrss-s/pages/as/site/us.as.com/section/futbol/portada/"
+        category_hint: "deportes"
+      - url: "https://feeds.as.com/mrss-s/pages/as/site/us.as.com/section/nfl/portada/"
+        category_hint: "deportes"
+    is_active: true
+
+  # ============================================================
+  # Marca — Spanish sports (RSS available)
+  # ============================================================
+  - name: "Marca"
+    domain: "marca.com"
+    site_type: "sports"
+    ingestion_method: "rss"
+    feeds:
+      - url: "https://www.marca.com/rss/portada.xml"
+        category_hint: "deportes"
+      - url: "https://e00-marca.uecdn.es/rss/futbol.xml"
+        category_hint: "deportes"
+      - url: "https://e00-marca.uecdn.es/rss/baloncesto.xml"
+        category_hint: "deportes"
+    is_active: true
+
+  # ============================================================
+  # Remezcla — Latino culture, music, film (WordPress RSS)
+  # ============================================================
+  - name: "Remezcla"
+    domain: "remezcla.com"
+    site_type: "culture"
+    ingestion_method: "rss"
+    feeds:
+      - url: "https://remezcla.com/feed/"
+        category_hint: "cultura"
+      - url: "https://remezcla.com/category/music/feed/"
+        category_hint: "musica"
+      - url: "https://remezcla.com/category/sports/feed/"
+        category_hint: "deportes"
+      - url: "https://remezcla.com/category/culture/feed/"
+        category_hint: "cultura"
+    is_active: true
+
+  # ============================================================
+  # Mitú — Latino entertainment, culture (RSS blocked, use CloakBrowser)
+  # ============================================================
+  - name: "Mitú"
+    domain: "wearemitu.com"
+    site_type: "entertainment"
+    ingestion_method: "browser"
+    scrape_targets:
+      - url: "https://wearemitu.com"
+        category_hint: "entretenimiento"
+      - url: "https://wearemitu.com/entertainment"
+        category_hint: "entretenimiento"
+      - url: "https://wearemitu.com/news"
+        category_hint: "noticias"
+      - url: "https://wearemitu.com/culture"
+        category_hint: "cultura"
+    link_selector: "article a[href*='/'], a[href*='wearemitu.com/']"
+    content_config:
+      title_selector: "h1"
+      body_selector: "article, .article-body, .post-content"
+      author_selector: ".author, .byline"
+      date_selector: "time, .post-date"
+      image_selector: "article img, .post-thumbnail img"
+      strip_selectors: [".ad-container", ".related-content", ".newsletter-signup"]
+    is_active: true
+
+  # ============================================================
+  # Latino Rebels — Politics, culture, opinion (WordPress RSS)
+  # ============================================================
+  - name: "Latino Rebels"
+    domain: "latinorebels.com"
+    site_type: "news"
+    ingestion_method: "rss"
+    feeds:
+      - url: "https://www.latinorebels.com/feed/"
+        category_hint: "noticias"
+      - url: "https://www.latinorebels.com/category/news/feed/"
+        category_hint: "noticias"
+    is_active: true
+
+  # ============================================================
+  # Univision — Major news, no RSS (CloakBrowser required)
+  # ============================================================
+  - name: "Univision"
+    domain: "univision.com"
+    site_type: "news"
+    ingestion_method: "browser"
+    scrape_targets:
+      - url: "https://www.univision.com/noticias"
+        category_hint: "noticias"
+      - url: "https://www.univision.com/deportes"
+        category_hint: "deportes"
+      - url: "https://www.univision.com/entretenimiento"
+        category_hint: "entretenimiento"
+    # CSS selectors for extracting article links from listing pages
+    link_selector: "article a[href*='/noticias/'], article a[href*='/deportes/'], article a[href*='/entretenimiento/']"
+    # Content selectors for article page extraction
+    content_config:
+      title_selector: "h1"
+      body_selector: "article .story-content, article .body-content, .article-body"
+      author_selector: ".author-name, .byline"
+      date_selector: "time, .publish-date, .timestamp"
+      image_selector: "article img"
+      strip_selectors: [".ad-container", ".related-content", ".newsletter-signup", ".social-share"]
+    is_active: true
+
+  # ============================================================
+  # Telemundo — Major news, no RSS (CloakBrowser required)
+  # ============================================================
+  - name: "Telemundo"
+    domain: "telemundo.com"
+    site_type: "news"
+    ingestion_method: "browser"
+    scrape_targets:
+      - url: "https://www.telemundo.com/noticias"
+        category_hint: "noticias"
+      - url: "https://www.telemundo.com/entretenimiento"
+        category_hint: "entretenimiento"
+      - url: "https://www.telemundo.com/deportes"
+        category_hint: "deportes"
+    link_selector: "article a[href*='/noticias/'], article a[href*='/entretenimiento/'], article a[href*='/deportes/']"
+    content_config:
+      title_selector: "h1"
+      body_selector: "article .article-body, article .story-body, .content-body"
+      author_selector: ".author, .byline"
+      date_selector: "time, .publish-date"
+      image_selector: "article img"
+      strip_selectors: [".ad-container", ".related-content", ".newsletter-signup"]
+    is_active: true
+
+# ============================================================
+# Pipeline settings
+# ============================================================
+settings:
+  # RSS scraping interval (minutes)
+  rss_interval: 15
+  # Browser scraping interval (minutes)
+  browser_interval: 120
+  # Maximum articles to fetch per source per run
+  max_per_source: 30
+  # Request timeout (seconds)
+  request_timeout: 30
+  # CloakBrowser path
+  cloakbrowser_path: "/home/user/browser-search"
+  # User agent for RSS requests
+  user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
