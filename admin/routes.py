@@ -531,6 +531,49 @@ async def automation_run(
     return JSONResponse(payload, status_code=200 if payload["ok"] else 500)
 
 
+# ============= PHASE 8 ANALYTICS =============
+
+def _load_analytics_module():
+    """Import pipeline.analytics for local growth reports."""
+    if str(PIPELINE_DIR) not in sys.path:
+        sys.path.insert(0, str(PIPELINE_DIR))
+    import importlib
+    return importlib.import_module("analytics")
+
+
+@router.get("/analytics", response_class=HTMLResponse)
+async def analytics_dashboard(request: Request, days: int = Query(30, ge=1, le=365)):
+    """Render Phase 8 analytics/growth dashboard."""
+    require_auth(request)
+    analytics = _load_analytics_module()
+    report = analytics.generate_analytics_report(days=days)
+    db = next(get_db())
+    pending_review = db.query(Article).filter(Article.status == "pending_review").count()
+    db.close()
+    return request.app.state.templates.TemplateResponse("analytics.html", {
+        "request": request,
+        "active_tab": "analytics",
+        "page_title": "Analytics",
+        "pending_review_count": pending_review,
+        "report": asdict(report),
+        "days": days,
+    })
+
+
+@router.get("/analytics/report")
+async def analytics_report(request: Request, days: int = Query(30, ge=1, le=365), write: bool = Query(False)):
+    """Return a Phase 8 analytics report as JSON."""
+    require_auth(request)
+    analytics = _load_analytics_module()
+    report = analytics.generate_analytics_report(days=days)
+    payload = asdict(report)
+    if write:
+        path = analytics.write_report(report)
+        payload["report_path"] = str(path.relative_to(PROJECT_ROOT))
+    payload["ok"] = True
+    return JSONResponse(payload)
+
+
 # ============= RAW ARTICLES =============
 
 @router.get("/raw-articles", response_class=HTMLResponse)

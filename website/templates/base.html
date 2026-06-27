@@ -149,10 +149,11 @@
                 <a href="#" aria-label="TikTok" class="social-link">TK</a>
             </div>
             <h4 style="margin-top: 1.5rem;">Newsletter</h4>
-            <form class="newsletter-form" onsubmit="return false;">
-                <input type="email" placeholder="Tu correo electrónico" aria-label="Email">
+            <form class="newsletter-form" data-newsletter-form data-newsletter-source="footer">
+                <input type="email" name="email" placeholder="Tu correo electrónico" aria-label="Email" required>
                 <button type="submit">Suscribirse</button>
             </form>
+            <div class="newsletter-message" aria-live="polite"></div>
         </div>
     </div>
 

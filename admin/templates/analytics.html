@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% set active_tab = 'analytics' %}
+{% set page_title = 'Analytics' %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1>Analytics</h1>
+        <p class="page-subtitle">Phase 8 growth and performance snapshot for the last {{ days }} days.</p>
+    </div>
+    <div class="page-actions">
+        <a href="/analytics?days=7" class="btn {{ 'btn-primary' if days == 7 else '' }}">7d</a>
+        <a href="/analytics?days=30" class="btn {{ 'btn-primary' if days == 30 else '' }}">30d</a>
+        <a href="/analytics?days=90" class="btn {{ 'btn-primary' if days == 90 else '' }}">90d</a>
+        <button type="button" class="btn btn-blue" onclick="writeAnalyticsReport()">💾 Guardar JSON</button>
+    </div>
+</div>
+
+<div id="analytics-status" class="publisher-status" style="display:none;"></div>
+
+<div class="stats-grid">
+    <div class="stat-card stat-blue">
+        <div class="stat-label">Published</div>
+        <div class="stat-value">{{ report.totals.published }}</div>
+        <div class="stat-sub">{{ report.totals.articles }} total articles</div>
+    </div>
+    <div class="stat-card stat-green">
+        <div class="stat-label">Views</div>
+        <div class="stat-value">{{ report.totals.views }}</div>
+        <div class="stat-sub">Lifetime article views</div>
+    </div>
+    <div class="stat-card stat-purple">
+        <div class="stat-label">Shares</div>
+        <div class="stat-value">{{ report.totals.shares }}</div>
+        <div class="stat-sub">Tracked share clicks</div>
+    </div>
+    <div class="stat-card stat-amber">
+        <div class="stat-label">Newsletter</div>
+        <div class="stat-value">{{ report.newsletter.total_signups }}</div>
+        <div class="stat-sub">{{ report.newsletter.recent_signups }} in window</div>
+    </div>
+</div>
+
+<div class="dash-columns">
+    <div class="dash-panel">
+        <h2 class="panel-title">Top Articles</h2>
+        {% if report.top_articles %}
+        <table class="data-table analytics-table">
+            <thead>
+                <tr><th>Article</th><th>Cat</th><th>Views</th><th>Shares</th></tr>
+            </thead>
+            <tbody>
+                {% for a in report.top_articles %}
+                <tr>
+                    <td><a href="{{ a.url }}" target="_blank">{{ a.title }}</a></td>
+                    <td>{{ a.category or '—' }}</td>
+                    <td>{{ a.views }}</td>
+                    <td>{{ a.shares }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="empty-note">No published articles yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="dash-panel">
+        <h2 class="panel-title">Category Breakdown</h2>
+        <table class="data-table analytics-table">
+            <thead>
+                <tr><th>Category</th><th>Published</th><th>Views</th></tr>
+            </thead>
+            <tbody>
+                {% for c in report.category_breakdown %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.published }}</td>
+                    <td>{{ c.views }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="dash-columns" style="margin-top:1.5rem;">
+    <div class="dash-panel">
+        <h2 class="panel-title">Share Mix</h2>
+        {% if report.share_breakdown %}
+        <div class="analytics-bars">
+            {% set max_shares = report.share_breakdown[0].shares if report.share_breakdown else 1 %}
+            {% for row in report.share_breakdown %}
+            <div class="analytics-bar-row">
+                <span>{{ row.network }}</span>
+                <div class="analytics-bar-track"><div class="analytics-bar-fill" style="width: {{ (row.shares / max_shares * 100)|round(0) }}%;"></div></div>
+                <strong>{{ row.shares }}</strong>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="empty-note">No tracked share clicks in this window yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="dash-panel">
+        <h2 class="panel-title">Recommendations</h2>
+        {% if report.recommendations %}
+        <ul class="recommendation-list">
+            {% for rec in report.recommendations %}
+            <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="empty-note">No recommendations for this window.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function writeAnalyticsReport() {
+    const status = document.getElementById('analytics-status');
+    status.style.display = 'block';
+    status.className = 'publisher-status publisher-status-running';
+    status.textContent = 'Generando reporte local...';
+    try {
+        const resp = await fetch('/analytics/report?days={{ days }}&write=true');
+        const data = await resp.json();
+        if (!data.ok) throw new Error(data.error || 'report failed');
+        status.className = 'publisher-status publisher-status-ok';
+        status.innerHTML = `✅ Reporte guardado: <strong>${data.report_path}</strong>`;
+    } catch (err) {
+        status.className = 'publisher-status publisher-status-error';
+        status.textContent = `❌ ${err}`;
+    }
+}
+</script>
+{% endblock %}

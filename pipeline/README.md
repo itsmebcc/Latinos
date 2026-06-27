@@ -57,3 +57,23 @@ The local admin dashboard exposes:
 - `POST /automation/run` — dry-run or guarded mutating automation run.
 
 Use the dashboard buttons for quick status checks and safe dry-runs; use the CLI for scheduled or long-running jobs.
+
+## Phase 8 Analytics / Growth Reports
+
+`pipeline.analytics` reads the shared SQLite database and summarizes content performance:
+
+```bash
+# Print report without writing files
+python -m pipeline.analytics --days 30 --json
+
+# Write timestamped local report and latest_analytics.json
+python -m pipeline.analytics --days 30 --write --json
+```
+
+The local admin dashboard exposes:
+
+- `GET /analytics` — visual analytics dashboard.
+- `GET /analytics/report?days=30&write=true` — JSON report and optional local write.
+
+Reports are written under `pipeline/reports/` and should stay local-only unless
+you intentionally force-add a specific report for audit history.

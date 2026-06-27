@@ -142,12 +142,35 @@ class PipelineRun(Base):
     status = Column(String(30), default="running")  # running, completed, failed
 
 
+class NewsletterSignup(Base):
+    """Newsletter signup captured from the public site."""
+    __tablename__ = "newsletter_signups"
+
+    id = Column(Integer, primary_key=True)
+    email = Column(String(320), unique=True, nullable=False, index=True)
+    source = Column(String(100), default="footer")
+    article_id = Column(Integer, ForeignKey("articles.id"), nullable=True)
+    status = Column(String(30), default="active", index=True)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+
+
+class ShareEvent(Base):
+    """Lightweight share-click event for growth analytics."""
+    __tablename__ = "share_events"
+
+    id = Column(Integer, primary_key=True)
+    article_id = Column(Integer, ForeignKey("articles.id"), nullable=False, index=True)
+    network = Column(String(40), nullable=False, index=True)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+
+
 # === Indexes for performance ===
 Index("idx_articles_status_published", Article.status, Article.published_at)
 Index("idx_articles_category_status", Article.category_id, Article.status)
 Index("idx_raw_articles_status", RawArticle.status)
 Index("idx_articles_slug", Article.slug)
 Index("idx_articles_breaking", Article.is_breaking, Article.status)
+Index("idx_share_events_article_network", ShareEvent.article_id, ShareEvent.network)
 
 
 def init_db(engine):

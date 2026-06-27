@@ -85,6 +85,20 @@ The admin dashboard also exposes Phase 7 buttons for status checks, dry-runs,
 and a guarded RSS + publisher run. Automation reports are local-only JSON files
 under `pipeline/runs/` and are not deployed to Railway.
 
+### Phase 8 Analytics / Growth
+```bash
+# Generate a read-only analytics report from the shared SQLite DB
+python -m pipeline.analytics --days 30 --json
+
+# Save a timestamped local report under pipeline/reports/
+python -m pipeline.analytics --days 30 --write --json
+```
+
+The admin dashboard exposes `/analytics` and `/analytics/report` for top
+articles, category coverage, newsletter signups, share clicks, and growth
+recommendations. Public article pages track share clicks and newsletter signup
+interest through lightweight local APIs.
+
 ## Deployment
 Pushes to `main` branch trigger automatic Railway rebuild.
 

@@ -3,13 +3,16 @@ Latinos.org — Public website routes.
 Serves homepage, article pages, category pages, search, RSS, and sitemap.
 """
 
+import re
 from datetime import datetime
-from fastapi import APIRouter, Request, Query, HTTPException
+from urllib.parse import quote_plus
+
+from fastapi import APIRouter, Request, Query, HTTPException, Form
 from fastapi.responses import HTMLResponse, Response, JSONResponse
 from sqlalchemy import select, func, desc
 from sqlalchemy.orm import Session, joinedload
 
-from models import Article, Category
+from models import Article, Category, NewsletterSignup, ShareEvent
 from database import get_db
 
 router = APIRouter()
@@ -174,11 +177,21 @@ async def article_page(request: Request, slug: str):
         .order_by(Category.display_order)
     ).scalars().all()
 
+    article_url = str(request.url)
+    encoded_url = quote_plus(article_url)
+    encoded_title = quote_plus(article.title)
+
     return request.app.state.templates.TemplateResponse("article.html", {
         "request": request,
         "article": article,
         "related": related,
         "categories": categories,
+        "share_urls": {
+            "facebook": f"https://www.facebook.com/sharer/sharer.php?u={encoded_url}",
+            "x": f"https://twitter.com/intent/tweet?text={encoded_title}&url={encoded_url}",
+            "whatsapp": f"https://wa.me/?text={encoded_title}%20{encoded_url}",
+            "email": f"mailto:?subject={encoded_title}&body={encoded_url}",
+        },
     })
 
 
@@ -282,6 +295,62 @@ async def search(
         "total_pages": total_pages,
         "total_results": total,
     })
+
+
+# === Growth / engagement APIs ===
+@router.post("/api/newsletter")
+async def newsletter_signup(
+    email: str = Form(...),
+    source: str = Form("footer"),
+    article_id: int | None = Form(None),
+):
+    """Capture newsletter interest from the public site."""
+    normalized = email.strip().lower()
+    if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", normalized):
+        return JSONResponse({"ok": False, "error": "Correo inválido."}, status_code=400)
+
+    db: Session = next(get_db())
+    try:
+        existing = db.execute(
+            select(NewsletterSignup).where(NewsletterSignup.email == normalized)
+        ).scalars().first()
+        if existing:
+            existing.status = "active"
+            existing.source = source[:100]
+            existing.article_id = article_id
+            message = "Ya estabas suscrito. Actualizamos tu preferencia."
+        else:
+            db.add(NewsletterSignup(
+                email=normalized,
+                source=source[:100],
+                article_id=article_id,
+            ))
+            message = "Gracias por suscribirte."
+        db.commit()
+        return JSONResponse({"ok": True, "message": message})
+    finally:
+        db.close()
+
+
+@router.post("/api/share/{article_id}")
+async def record_share(article_id: int, network: str = Form(...)):
+    """Record a share-button click for local growth analytics."""
+    clean_network = re.sub(r"[^a-z0-9_-]", "", network.lower())[:40]
+    if clean_network not in {"facebook", "x", "whatsapp", "email", "copy"}:
+        clean_network = "other"
+
+    db: Session = next(get_db())
+    try:
+        exists = db.execute(
+            select(Article.id).where(Article.id == article_id, Article.status == "published")
+        ).scalar()
+        if not exists:
+            return JSONResponse({"ok": False, "error": "Artículo no encontrado."}, status_code=404)
+        db.add(ShareEvent(article_id=article_id, network=clean_network))
+        db.commit()
+        return JSONResponse({"ok": True})
+    finally:
+        db.close()
 
 
 # === RSS Feed ===

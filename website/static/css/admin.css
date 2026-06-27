@@ -717,6 +717,59 @@ a:hover { text-decoration: underline; }
     background: var(--bg-card);
 }
 
+/* === PHASE 8 ANALYTICS === */
+.page-subtitle {
+    color: var(--text-dim);
+    margin-top: 0.25rem;
+}
+
+.analytics-table td:first-child {
+    max-width: 340px;
+}
+
+.analytics-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.analytics-bar-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 48px;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.analytics-bar-track {
+    height: 10px;
+    border-radius: 999px;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.analytics-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--amber));
+}
+
+.recommendation-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.recommendation-list li {
+    padding: 0.75rem;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    color: var(--text);
+}
+
 /* === EMPTY STATES === */
 .empty-state {
     text-align: center;

@@ -34,4 +34,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // === Newsletter signup capture ===
+    document.querySelectorAll('[data-newsletter-form]').forEach(function(form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const message = form.parentElement.querySelector('.newsletter-message') || form.nextElementSibling;
+            const data = new FormData(form);
+            data.append('source', form.dataset.newsletterSource || 'footer');
+            if (form.dataset.articleId) data.append('article_id', form.dataset.articleId);
+            if (message) {
+                message.textContent = 'Enviando...';
+                message.className = 'newsletter-message is-loading';
+            }
+            try {
+                const resp = await fetch('/api/newsletter', { method: 'POST', body: data });
+                const payload = await resp.json();
+                if (!payload.ok) throw new Error(payload.error || 'No se pudo registrar.');
+                form.reset();
+                if (message) {
+                    message.textContent = payload.message || 'Gracias por suscribirte.';
+                    message.className = 'newsletter-message is-ok';
+                }
+            } catch (err) {
+                if (message) {
+                    message.textContent = err.message || String(err);
+                    message.className = 'newsletter-message is-error';
+                }
+            }
+        });
+    });
+
+    // === Share click tracking ===
+    document.querySelectorAll('[data-share-article]').forEach(function(link) {
+        link.addEventListener('click', function() {
+            const data = new FormData();
+            data.append('network', link.dataset.shareNetwork || 'other');
+            const url = `/api/share/${link.dataset.shareArticle}`;
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon(url, data);
+            } else {
+                fetch(url, { method: 'POST', body: data, keepalive: true }).catch(function() {});
+            }
+        });
+    });
+
 });
