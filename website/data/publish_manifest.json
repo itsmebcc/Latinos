@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T16:08:13Z",
+  "generated_at": "2026-06-28T18:03:36Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 166,
-    "pending_review": 3,
+    "published": 167,
+    "pending_review": 2,
     "approved": 0
   },
   "latest_published": [
@@ -89,9 +89,9 @@
     }
   ],
   "last_run": {
-    "articles_published": 2,
-    "articles_processed": 164,
-    "images_downloaded": 0,
+    "articles_published": 0,
+    "articles_processed": 167,
+    "images_downloaded": 3,
     "images_skipped": 161,
     "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
