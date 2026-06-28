@@ -1,98 +1,98 @@
 {
-  "generated_at": "2026-06-28T04:42:49Z",
+  "generated_at": "2026-06-28T04:46:33Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 175,
+    "published": 163,
     "pending_review": 0,
     "approved": 0
   },
   "latest_published": [
     {
-      "id": 227,
-      "slug": "20-nuevas-canciones-artistas-latinos-esta-semana-chzter-ana-macho",
-      "title": "20 Nuevas Canciones Para Escuchar Esta Semana: Desde Chzter Hasta Ana Macho",
-      "quality_score": 0.94,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/227-20-nuevas-canciones-artistas-latinos-esta-semana-chzter-ana-macho-f154c72798e2.webp"
-    },
-    {
-      "id": 224,
-      "slug": "devers-rechaza-ceder-tercera-base-bregman-red-sox",
-      "title": "Rafael Devers no quiere ceder la tercera base tras el fichaje de Alex Bregman por los Boston Red Sox",
-      "quality_score": 0.96,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/224-devers-rechaza-ceder-tercera-base-bregman-red-sox-7ad3ff6e3948.webp"
-    },
-    {
-      "id": 223,
-      "slug": "ancelotti-real-madrid-record-prorrogas",
-      "title": "Nadie quiere llegar a una prórroga contra Carlo Ancelotti",
-      "quality_score": 0.88,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/223-ancelotti-real-madrid-record-prorrogas-c1a4a083d08c.webp"
-    },
-    {
       "id": 221,
       "slug": "futbol-femenino-copa-mundial-selecciones-no-europeas",
       "title": "Un Campo Más Plano",
       "quality_score": 0.88,
-      "published_at": "2026-06-28T04:34:40.110338",
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
       "image_url": null
-    },
-    {
-      "id": 220,
-      "slug": "el-kalvo-hip-hop-colombiano-emergente",
-      "title": "Artistas que Debes Conocer Antes de que Exploten: El Kalvo",
-      "quality_score": 0.94,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/220-el-kalvo-hip-hop-colombiano-emergente-807fd69bc9cd.webp"
-    },
-    {
-      "id": 219,
-      "slug": "valencia-basket-mejor-equipo-fuera-nba-anotacion-eurocup",
-      "title": "El Valencia es el mejor equipo fuera de la NBA en cuanto a anotación y eficacia en el tiro de tres",
-      "quality_score": 0.84,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/219-valencia-basket-mejor-equipo-fuera-nba-anotacion-eurocup-58f25b88dfd6.webp"
-    },
-    {
-      "id": 218,
-      "slug": "eagles-ganan-super-bowl-lix-derrota-a-chiefs",
-      "title": "Los Eagles aplastan a Patrick Mahomes y los Chiefs para ganar el Super Bowl LIX",
-      "quality_score": 0.94,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/218-eagles-ganan-super-bowl-lix-derrota-a-chiefs-04a4f0fb3ac3.webp"
-    },
-    {
-      "id": 217,
-      "slug": "botafogo-refuerzos-mls-2025",
-      "title": "Botafogo vuelve a pescar en la MLS",
-      "quality_score": 0.94,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/217-botafogo-refuerzos-mls-2025-77012901b95e.webp"
-    },
-    {
-      "id": 216,
-      "slug": "carmona-critica-equipo-derbi-no-altura-escudo",
-      "title": "Carmona: \"En la segunda parte no estuvimos a la altura del escudo\"",
-      "quality_score": 0.89,
-      "published_at": "2026-06-28T04:34:40.110338",
-      "image_url": "/static/images/articles/216-carmona-critica-equipo-derbi-no-altura-escudo-856a39c1087c.webp"
     },
     {
       "id": 215,
       "slug": "chesebro-arquitecto-plan-trump-puerto-rico",
       "title": "‘Mentes’ Detrás del Plan Electoral de Trump Se Ocultan en Puerto Rico",
       "quality_score": 0.82,
-      "published_at": "2026-06-28T04:34:40.110338",
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 208,
+      "slug": "maria-y-maui-colonialismo-y-desastre",
+      "title": "María y Maui (OPINIÓN)",
+      "quality_score": 0.8,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 201,
+      "slug": "baloncesto-profesional-puerto-rico-renacimiento",
+      "title": "El baloncesto profesional de Puerto Rico vive un renacimiento",
+      "quality_score": 0.85,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 195,
+      "slug": "hope-soledad-mujeres-indigenas-mexicanas",
+      "title": "‘Hope, Soledad’ centra los mundos interiores de las mujeres indígenas mexicanas",
+      "quality_score": 0.81,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 190,
+      "slug": "elecciones-guatemala-democracia-progresista-semilla",
+      "title": "Democracia en Duda: Cuando las Elecciones Progresistas en Guatemala Casi no Ocurren",
+      "quality_score": 0.8,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 186,
+      "slug": "american-homeboy-documental-cultura-cholo-identidad-latina",
+      "title": "American Homeboy",
+      "quality_score": 0.9,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 180,
+      "slug": "juez-ordena-texas-retirar-barrera-flotante-frontera-migrantes",
+      "title": "Un juez ordena a Texas retirar una barrera flotante usada para disuadir migrantes entre EE. UU. y México",
+      "quality_score": 0.85,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 173,
+      "slug": "caida-audiencia-medios-latinos-eeuu",
+      "title": "La Audiencia en los Medios Tradicionales Latinos y Afroamericanos de EE. UU. Sigue Cayendo",
+      "quality_score": 0.89,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
+      "image_url": null
+    },
+    {
+      "id": 167,
+      "slug": "orden-judicial-autoriza-barrera-flotante-texas-frontera",
+      "title": "Orden Judicial Autoriza que la Barrera Flotante de Texas en la Frontera Permanezca por Ahora",
+      "quality_score": 0.9,
+      "published_at": "2026-06-28T04:46:26.620361+00:00",
       "image_url": null
     }
   ],
   "last_run": {
     "articles_published": 0,
-    "articles_processed": 175,
+    "articles_processed": 163,
     "images_downloaded": 0,
-    "images_skipped": 172,
+    "images_skipped": 160,
     "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
