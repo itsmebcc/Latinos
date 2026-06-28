@@ -1,99 +1,99 @@
 {
-  "generated_at": "2026-06-27T21:22:36Z",
+  "generated_at": "2026-06-28T04:40:01Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 17,
+    "published": 175,
     "pending_review": 0,
     "approved": 0
   },
   "latest_published": [
     {
-      "id": 3,
-      "slug": "comunidad-latina-california-ayuda-venezuela-terremoto",
-      "title": "Comunidad Latina en California se moviliza para ayudar a víctimas del terremoto en Venezuela",
-      "quality_score": 0.9,
-      "published_at": "2026-06-27T15:54:32.444340",
+      "id": 227,
+      "slug": "20-nuevas-canciones-artistas-latinos-esta-semana-chzter-ana-macho",
+      "title": "20 Nuevas Canciones Para Escuchar Esta Semana: Desde Chzter Hasta Ana Macho",
+      "quality_score": 0.94,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/227-20-nuevas-canciones-artistas-latinos-esta-semana-chzter-ana-macho-f154c72798e2.webp"
+    },
+    {
+      "id": 224,
+      "slug": "devers-rechaza-ceder-tercera-base-bregman-red-sox",
+      "title": "Rafael Devers no quiere ceder la tercera base tras el fichaje de Alex Bregman por los Boston Red Sox",
+      "quality_score": 0.96,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/224-devers-rechaza-ceder-tercera-base-bregman-red-sox-7ad3ff6e3948.webp"
+    },
+    {
+      "id": 223,
+      "slug": "ancelotti-real-madrid-record-prorrogas",
+      "title": "Nadie quiere llegar a una prórroga contra Carlo Ancelotti",
+      "quality_score": 0.88,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/223-ancelotti-real-madrid-record-prorrogas-c1a4a083d08c.webp"
+    },
+    {
+      "id": 221,
+      "slug": "futbol-femenino-copa-mundial-selecciones-no-europeas",
+      "title": "Un Campo Más Plano",
+      "quality_score": 0.88,
+      "published_at": "2026-06-28T04:34:40.110338",
       "image_url": null
     },
     {
-      "id": 1,
-      "slug": "mexico-historia-mundial-2026-fase-grupos-perfecta",
-      "title": "La Selección Mexicana hace historia en el Mundial 2026 con fase de grupos perfecta",
-      "quality_score": 0.9,
-      "published_at": "2026-06-27T14:54:32.444340",
-      "image_url": null
+      "id": 220,
+      "slug": "el-kalvo-hip-hop-colombiano-emergente",
+      "title": "Artistas que Debes Conocer Antes de que Exploten: El Kalvo",
+      "quality_score": 0.94,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/220-el-kalvo-hip-hop-colombiano-emergente-807fd69bc9cd.webp"
     },
     {
-      "id": 2,
-      "slug": "bad-bunny-gira-mundial-taquillas-2026",
-      "title": "Bad Bunny vuelve a reventar las taquillas con su gira mundial",
-      "quality_score": 0.9,
-      "published_at": "2026-06-27T11:54:32.444340",
-      "image_url": null
+      "id": 219,
+      "slug": "valencia-basket-mejor-equipo-fuera-nba-anotacion-eurocup",
+      "title": "El Valencia es el mejor equipo fuera de la NBA en cuanto a anotación y eficacia en el tiro de tres",
+      "quality_score": 0.84,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/219-valencia-basket-mejor-equipo-fuera-nba-anotacion-eurocup-58f25b88dfd6.webp"
     },
     {
-      "id": 4,
-      "slug": "neymar-regreso-seleccion-brasilera-2026",
-      "title": "Neymar regresa a la selección brasileña tras casi tres años de ausencia",
-      "quality_score": 0.9,
-      "published_at": "2026-06-27T08:54:32.444340",
-      "image_url": null
+      "id": 218,
+      "slug": "eagles-ganan-super-bowl-lix-derrota-a-chiefs",
+      "title": "Los Eagles aplastan a Patrick Mahomes y los Chiefs para ganar el Super Bowl LIX",
+      "quality_score": 0.94,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/218-eagles-ganan-super-bowl-lix-derrota-a-chiefs-04a4f0fb3ac3.webp"
     },
     {
-      "id": 5,
-      "slug": "tradiciones-familiares-verano-latino",
-      "title": "Las tradiciones familiares que definen el verano Latino",
-      "quality_score": 0.9,
-      "published_at": "2026-06-27T04:54:32.444340",
-      "image_url": null
+      "id": 217,
+      "slug": "botafogo-refuerzos-mls-2025",
+      "title": "Botafogo vuelve a pescar en la MLS",
+      "quality_score": 0.94,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/217-botafogo-refuerzos-mls-2025-77012901b95e.webp"
     },
     {
-      "id": 6,
-      "slug": "shakira-ceremonia-inaugural-mundial-2026",
-      "title": "Shakira encabezará la ceremonia inaugural del Mundial 2026",
-      "quality_score": 0.9,
-      "published_at": "2026-06-26T22:54:32.444340",
-      "image_url": null
+      "id": 216,
+      "slug": "carmona-critica-equipo-derbi-no-altura-escudo",
+      "title": "Carmona: \"En la segunda parte no estuvimos a la altura del escudo\"",
+      "quality_score": 0.89,
+      "published_at": "2026-06-28T04:34:40.110338",
+      "image_url": "/static/images/articles/216-carmona-critica-equipo-derbi-no-altura-escudo-856a39c1087c.webp"
     },
     {
-      "id": 7,
-      "slug": "debate-tps-venezuela-crisis-humanitaria-2026",
-      "title": "Debate sobre el TPS se reaviva tras crisis humanitaria en Venezuela",
-      "quality_score": 0.9,
-      "published_at": "2026-06-26T16:54:32.444340",
-      "image_url": null
-    },
-    {
-      "id": 8,
-      "slug": "auge-cine-latino-hollywood-2026",
-      "title": "El auge del cine Latino: las películas que están cambiando Hollywood",
-      "quality_score": 0.9,
-      "published_at": "2026-06-26T10:54:32.444340",
-      "image_url": null
-    },
-    {
-      "id": 9,
-      "slug": "rosalia-gira-lux-tour-estados-unidos-2026",
-      "title": "Rosalía anuncia gira LUX Tour con paradas en Miami, Los Ángeles y Nueva York",
-      "quality_score": 0.9,
-      "published_at": "2026-06-26T04:54:32.444340",
-      "image_url": null
-    },
-    {
-      "id": 10,
-      "slug": "jugadoras-latinas-futbol-femenino-cambio",
-      "title": "Las jugadoras Latinas que están cambiando el fútbol femenino",
-      "quality_score": 0.9,
-      "published_at": "2026-06-25T16:54:32.444340",
+      "id": 215,
+      "slug": "chesebro-arquitecto-plan-trump-puerto-rico",
+      "title": "‘Mentes’ Detrás del Plan Electoral de Trump Se Ocultan en Puerto Rico",
+      "quality_score": 0.82,
+      "published_at": "2026-06-28T04:34:40.110338",
       "image_url": null
     }
   ],
   "last_run": {
     "articles_published": 0,
-    "articles_processed": 17,
-    "images_downloaded": 0,
-    "images_skipped": 17,
-    "images_failed": 0,
+    "articles_processed": 175,
+    "images_downloaded": 138,
+    "images_skipped": 34,
+    "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
     "pushed": false,
