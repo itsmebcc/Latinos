@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-28T19:49:20Z",
+  "generated_at": "2026-06-28T21:17:54Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 169,
-    "pending_review": 0,
+    "published": 180,
+    "pending_review": 97,
     "approved": 0
   },
   "latest_published": [
@@ -89,7 +89,7 @@
     }
   ],
   "last_run": {
-    "articles_published": 0,
+    "articles_published": 11,
     "articles_processed": 169,
     "images_downloaded": 0,
     "images_skipped": 166,
