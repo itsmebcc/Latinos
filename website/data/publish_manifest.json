@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T15:35:22Z",
+  "generated_at": "2026-06-28T15:54:39Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 164,
@@ -89,9 +89,9 @@
     }
   ],
   "last_run": {
-    "articles_published": 1,
-    "articles_processed": 163,
-    "images_downloaded": 0,
+    "articles_published": 0,
+    "articles_processed": 164,
+    "images_downloaded": 1,
     "images_skipped": 160,
     "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
