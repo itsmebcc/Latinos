@@ -9,7 +9,7 @@ CRITERIOS DE EVALUACIÓN:
 4. **ALUCINACIONES**: ¿Hay información inventada que no está en el original? (true/false)
 5. **APROPIADO**: ¿Es apropiado para la audiencia Latina de EE.UU.? (0.0-1.0)
 
-Responde ÚNICAMENTE con un objeto JSON válido:
+Responde ÚNICAMENTE con un objeto JSON válido, sin texto adicional antes o después del JSON. No uses bloques de código (```). Solo el objeto JSON:
 {
   "quality_score": promedio de los puntajes (0.0-1.0),
   "fidelity": 0.0-1.0,
@@ -21,4 +21,4 @@ Responde ÚNICAMENTE con un objeto JSON válido:
   "recommendation": "publish|review|reject"
 }
 
-No incluyas texto adicional, solo el JSON.
+No incluyas texto adicional, explicaciones ni bloques de código. Solo el objeto JSON puro.

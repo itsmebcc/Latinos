@@ -13,12 +13,15 @@
     --color-primary-dark: #9B0E24;
     --color-accent: #FF6B35;       /* Warm orange */
     --color-gold: #F5A623;         /* Gold */
-    --color-dark: #1a1a2e;         /* Deep navy-black */
+    --color-dark: #1a1a2e;         /* Deep navy-black (used for headings) */
     --color-text: #2d2d2d;
     --color-text-light: #6b6b6b;
     --color-bg: #ffffff;
     --color-bg-alt: #f8f8f8;
     --color-border: #e0e0e0;
+    --color-shadow: rgba(0,0,0,0.06);
+    --color-shadow-heavy: rgba(0,0,0,0.12);
+    --color-overlay: rgba(0,0,0,0.85);
 
     /* Typography */
     --font-head: 'Archivo Black', 'Inter', sans-serif;
@@ -29,6 +32,137 @@
     --header-h: 64px;
     --radius: 8px;
     --transition: 0.2s ease;
+}
+
+/* === DARK MODE === */
+body.dark {
+    --color-dark: #f0f0f0;
+    --color-text: #e0e0e0;
+    --color-text-light: #9a9a9a;
+    --color-bg: #0f0f13;
+    --color-bg-alt: #18181c;
+    --color-border: #2a2a2f;
+    --color-shadow: rgba(0,0,0,0.3);
+    --color-shadow-heavy: rgba(0,0,0,0.5);
+}
+
+body.dark .site-header {
+    background: #0f0f13;
+    border-bottom-color: #2a2a2f;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+body.dark .logo-text {
+    color: #f0f0f0;
+}
+
+body.dark .main-nav a {
+    color: #e0e0e0;
+}
+
+body.dark .header-search input {
+    background: #18181c;
+    color: #e0e0e0;
+    border-color: #2a2a2f;
+}
+
+body.dark .mobile-menu-btn span {
+    background: #f0f0f0;
+}
+
+body.dark .feature-pill {
+    background: #18181c;
+    border-color: #2a2a2f;
+    color: #e0e0e0;
+}
+
+body.dark .feature-pill:hover {
+    color: #fff;
+    background: var(--color-primary);
+}
+
+body.dark .article-card {
+    background: #18181c;
+}
+
+body.dark .article-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+body.dark .card-image-placeholder {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15), transparent 28%),
+        linear-gradient(135deg, #8B0000 0%, #8B4513 52%, #8B6914 100%);
+}
+
+body.dark .frontpage-modules {
+    background: linear-gradient(180deg, #0f0f13 0%, #120f12 100%);
+}
+
+body.dark .module-card {
+    background: #18181c;
+    border-color: #2a2a2f;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+body.dark .grid-section,
+body.dark .category-section {
+    border-top-color: #2a2a2f;
+}
+
+body.dark .trending-section {
+    background: #18181c;
+}
+
+/* Dark mode toggle button */
+.dark-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all var(--transition);
+    flex-shrink: 0;
+}
+
+.dark-toggle:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.dark-toggle .icon-sun,
+.dark-toggle .icon-moon { transition: opacity var(--transition); }
+
+body:not(.dark) .dark-toggle .icon-moon { display: none; }
+body.dark .dark-toggle .icon-sun { display: none; }
+
+body.dark .footer {
+    background: #18181c;
+    border-top-color: #2a2a2f;
+    color: #e0e0e0;
+}
+
+body.dark .footer a {
+    color: #c0c0c0;
+}
+
+body.dark .footer-links a:hover {
+    color: var(--color-primary);
+}
+
+body.dark .newsletter-form input {
+    background: #0f0f13;
+    color: #e0e0e0;
+    border-color: #2a2a2f;
+}
+
+body.dark .sports-hub {
+    background: #18181c;
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }

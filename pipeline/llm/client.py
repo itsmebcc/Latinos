@@ -29,10 +29,10 @@ SAMPLING_PARAMS: Dict[str, Any] = {
     "min_p": 0.0,
     "presence_penalty": 0.0,
     "repetition_penalty": 1.0,
-    "max_tokens": 8196,
+    # "max_tokens": 8196,
     # Chain-of-thought reasoning (used by qwen3.5-27b)
-    "thinking_token_budget": 480,
-    "reasoning_effort": "low",
+    # "thinking_token_budget": 480,
+    "reasoning_effort": "high",
     "chat_template_kwargs": {"preserve_thinking": False},
 }
 # =============================================================================

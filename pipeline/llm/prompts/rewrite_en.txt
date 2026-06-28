@@ -14,4 +14,6 @@ STYLE GUIDELINES:
 
 OUTPUT FORMAT: Clean Markdown.
 
+⚠️ IMPORTANT: Your response must contain ONLY the article. Do NOT include introductions like "Here is", "Here's the English version", greetings, or any wrapper text. The first line of your response must be the article title. The last line must be the final paragraph of the article content.
+
 Write the complete article in English:

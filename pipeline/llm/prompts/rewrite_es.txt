@@ -24,4 +24,6 @@ Estructura sugerida:
 - ## Subtítulo 2 (si es necesario)
 - Contenido...
 
+⚠️ IMPORTANTE: Tu respuesta debe contener ÚNICAMENTE el artículo reescrito. No incluyas introducciones como "Aquí tienes", "He preparado", ni saludos. La primera línea de tu respuesta debe ser el título del artículo. La última línea debe ser el último párrafo del contenido.
+
 Escribe el artículo completo en español:

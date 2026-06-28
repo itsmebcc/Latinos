@@ -2,6 +2,20 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // === Dark mode toggle ===
+    const darkToggle = document.getElementById('darkToggle');
+    if (darkToggle) {
+        // Check saved preference or system preference
+        const saved = localStorage.getItem('darkMode');
+        if (saved === 'true' || (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark');
+        }
+        darkToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+        });
+    }
+
     // === Mobile menu toggle ===
     const menuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
