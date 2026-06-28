@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T05:11:47Z",
+  "generated_at": "2026-06-28T05:17:35Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 163,
@@ -13,7 +13,7 @@
       "title": "Un Campo Más Plano",
       "quality_score": 0.88,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/221-futbol-femenino-copa-mundial-selecciones-no-europeas-6e1f99df734c.webp"
     },
     {
       "id": 215,
@@ -21,7 +21,7 @@
       "title": "‘Mentes’ Detrás del Plan Electoral de Trump Se Ocultan en Puerto Rico",
       "quality_score": 0.82,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/215-chesebro-arquitecto-plan-trump-puerto-rico-1f70e7a16bc3.webp"
     },
     {
       "id": 208,
@@ -29,7 +29,7 @@
       "title": "María y Maui (OPINIÓN)",
       "quality_score": 0.8,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/208-maria-y-maui-colonialismo-y-desastre-a0c6ec6f366c.webp"
     },
     {
       "id": 201,
@@ -37,7 +37,7 @@
       "title": "El baloncesto profesional de Puerto Rico vive un renacimiento",
       "quality_score": 0.85,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/201-baloncesto-profesional-puerto-rico-renacimiento-9b5b4b7fcd99.webp"
     },
     {
       "id": 195,
@@ -45,7 +45,7 @@
       "title": "‘Hope, Soledad’ centra los mundos interiores de las mujeres indígenas mexicanas",
       "quality_score": 0.81,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/195-hope-soledad-mujeres-indigenas-mexicanas-17dc52732324.webp"
     },
     {
       "id": 190,
@@ -53,7 +53,7 @@
       "title": "Democracia en Duda: Cuando las Elecciones Progresistas en Guatemala Casi no Ocurren",
       "quality_score": 0.8,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/190-elecciones-guatemala-democracia-progresista-semilla-9bf168625001.webp"
     },
     {
       "id": 186,
@@ -61,7 +61,7 @@
       "title": "American Homeboy",
       "quality_score": 0.9,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/186-american-homeboy-documental-cultura-cholo-identidad-latina-4f924cddcbd3.webp"
     },
     {
       "id": 180,
@@ -69,7 +69,7 @@
       "title": "Un juez ordena a Texas retirar una barrera flotante usada para disuadir migrantes entre EE. UU. y México",
       "quality_score": 0.85,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/180-juez-ordena-texas-retirar-barrera-flotante-frontera-migrantes-d1174f9fd1a1.webp"
     },
     {
       "id": 173,
@@ -77,7 +77,7 @@
       "title": "La Audiencia en los Medios Tradicionales Latinos y Afroamericanos de EE. UU. Sigue Cayendo",
       "quality_score": 0.89,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/173-caida-audiencia-medios-latinos-eeuu-5e0ce2cc56fb.webp"
     },
     {
       "id": 167,
@@ -85,7 +85,7 @@
       "title": "Orden Judicial Autoriza que la Barrera Flotante de Texas en la Frontera Permanezca por Ahora",
       "quality_score": 0.9,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": null
+      "image_url": "/static/images/articles/167-orden-judicial-autoriza-barrera-flotante-texas-frontera-96fc169e28f2.webp"
     }
   ],
   "last_run": {
