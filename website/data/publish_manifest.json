@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-29T15:23:26Z",
+  "generated_at": "2026-06-29T15:24:37Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 212,
+    "published": 210,
     "pending_review": 88,
     "approved": 0
   },
@@ -38,14 +38,6 @@
       "quality_score": 0.89,
       "published_at": "2026-06-29T15:22:33.515204",
       "image_url": "/static/images/articles/335-zlatan-ibrahimovic-francia-bestia-derrotar-suecia-nueva-york-937366094d86.webp"
-    },
-    {
-      "id": 321,
-      "slug": "g7-narcotrafico-batalla-legal-washington-maduro",
-      "title": "Título: G7, Narcotráfico y Maduro: La Batalla Legal de Washington Contra las Redes del Crimen",
-      "quality_score": 0.9,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "https://www.univision.com/api/image/og/us/noticias/narcotrafico"
     },
     {
       "id": 319,
@@ -86,14 +78,22 @@
       "quality_score": 0.88,
       "published_at": "2026-06-29T15:22:33.515204",
       "image_url": "/static/images/articles/252-terremoto-venezuela-balance-danos-rescate-da2b4b6e358d.webp"
+    },
+    {
+      "id": 241,
+      "slug": "proyecto-2025-plan-conservador-futuro-migratorio-eeuu",
+      "title": "Proyecto 2025: El Plan Conservador que Podría Cambiar el Futuro Migratorio en EE.UU.",
+      "quality_score": 0.89,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "https://www.univision.com/api/image/og/us/noticias/inmigracion/nuevas-reglas-de-inmigracion"
     }
   ],
   "last_run": {
     "articles_published": 0,
-    "articles_processed": 212,
-    "images_downloaded": 13,
-    "images_skipped": 192,
-    "images_failed": 7,
+    "articles_processed": 210,
+    "images_downloaded": 0,
+    "images_skipped": 204,
+    "images_failed": 6,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
     "pushed": false,
