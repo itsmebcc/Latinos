@@ -1,12 +1,28 @@
 {
-  "generated_at": "2026-06-29T15:24:42Z",
+  "generated_at": "2026-06-29T15:27:49Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 210,
-    "pending_review": 88,
+    "published": 212,
+    "pending_review": 106,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 401,
+      "slug": "darializa-avila-vence-a-espaillat-redefine-liderazgo-latino",
+      "title": "Adiós al veterano: cómo la victoria de Darializa Ávila redefine el liderazgo latino en el Congreso",
+      "quality_score": 0.85,
+      "published_at": "2026-06-29T15:27:46.067528",
+      "image_url": null
+    },
+    {
+      "id": 397,
+      "slug": "messi-anota-su-sexto-gol-en-la-copa-con-tiro-libre-de-pelicula",
+      "title": "Messi deslumbra: el 10 convierte su sexta diana en la Copa con un tiro libre de película",
+      "quality_score": 0.85,
+      "published_at": "2026-06-29T15:27:46.067528",
+      "image_url": null
+    },
     {
       "id": 378,
       "slug": "pedri-gavi-y-olmo-anotan-triple-en-baloncesto-con-la-seleccion",
@@ -53,7 +69,7 @@
       "title": "Shock en California: hallazgo macabro de 117 perros enterrados en refugio “sin sacrificio”",
       "quality_score": 0.83,
       "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "https://www.univision.com/api/image/og/us/noticias/justicia/el-horror-en-un-refugio-de-animales-en-california-encuentran-mas-de-100-perros-enterrados-en-fosas"
+      "image_url": "/static/images/articles/313-california-117-perros-enterrados-refugio-sin-sacrificio-39cdda436a38.webp"
     },
     {
       "id": 281,
@@ -70,30 +86,14 @@
       "quality_score": 0.95,
       "published_at": "2026-06-29T15:22:33.515204",
       "image_url": "https://www.univision.com/api/image/og/us/noticias/elecciones-en-estados-unidos-2024"
-    },
-    {
-      "id": 252,
-      "slug": "terremoto-venezuela-balance-danos-rescate",
-      "title": "Terremotos en Venezuela: Cuatro días de dolor y esperanza en medio del caos",
-      "quality_score": 0.88,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/252-terremoto-venezuela-balance-danos-rescate-da2b4b6e358d.webp"
-    },
-    {
-      "id": 241,
-      "slug": "proyecto-2025-plan-conservador-futuro-migratorio-eeuu",
-      "title": "Proyecto 2025: El Plan Conservador que Podría Cambiar el Futuro Migratorio en EE.UU.",
-      "quality_score": 0.89,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "https://www.univision.com/api/image/og/us/noticias/inmigracion/nuevas-reglas-de-inmigracion"
     }
   ],
   "last_run": {
-    "articles_published": 0,
+    "articles_published": 2,
     "articles_processed": 210,
-    "images_downloaded": 0,
+    "images_downloaded": 2,
     "images_skipped": 204,
-    "images_failed": 6,
+    "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
     "pushed": false,
