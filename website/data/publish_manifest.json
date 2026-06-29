@@ -1,19 +1,43 @@
 {
-  "generated_at": "2026-06-29T15:27:49Z",
+  "generated_at": "2026-06-29T18:16:23Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 212,
-    "pending_review": 106,
+    "published": 215,
+    "pending_review": 123,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 420,
+      "slug": "mahrez-zurda-clasifica-argelia-austria-octavos-mundial-2026",
+      "title": "Mahrez desata su zurda y sella el empate que clasifica a Argelia y Austria a octavos del Mundial 2026",
+      "quality_score": 0.9,
+      "published_at": "2026-06-29T18:16:20.306618",
+      "image_url": null
+    },
+    {
+      "id": 409,
+      "slug": "portugal-vs-colombia-0-0-mundial-2026",
+      "title": "Portugal y Colombia se van de manos en un 0-0 táctico en la Copa Mundial 2026",
+      "quality_score": 0.89,
+      "published_at": "2026-06-29T18:16:20.306618",
+      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-80x80,f_auto,q_auto:best/telemundocms/MPX/image/NBCU_Telemundo/977/910/46817415268-1080pnbcstations.jpg"
+    },
+    {
+      "id": 407,
+      "slug": "arnautovic-clasifica-a-austria-a-octavos-mundial-2026",
+      "title": "Arnautovic despierta y, con un certero remate, le abre las puertas de octavos a Austria",
+      "quality_score": 0.85,
+      "published_at": "2026-06-29T18:16:20.306618",
+      "image_url": null
+    },
     {
       "id": 401,
       "slug": "darializa-avila-vence-a-espaillat-redefine-liderazgo-latino",
       "title": "Adiós al veterano: cómo la victoria de Darializa Ávila redefine el liderazgo latino en el Congreso",
       "quality_score": 0.85,
       "published_at": "2026-06-29T15:27:46.067528",
-      "image_url": null
+      "image_url": "/static/images/articles/401-darializa-avila-vence-a-espaillat-redefine-liderazgo-latino-df7961533b7e.webp"
     },
     {
       "id": 397,
@@ -21,7 +45,7 @@
       "title": "Messi deslumbra: el 10 convierte su sexta diana en la Copa con un tiro libre de película",
       "quality_score": 0.85,
       "published_at": "2026-06-29T15:27:46.067528",
-      "image_url": null
+      "image_url": "/static/images/articles/397-messi-anota-su-sexto-gol-en-la-copa-con-tiro-libre-de-pelicula-6d3ba8fd74cc.webp"
     },
     {
       "id": 378,
@@ -62,37 +86,13 @@
       "quality_score": 0.86,
       "published_at": "2026-06-29T15:22:33.515204",
       "image_url": "/static/images/articles/319-raul-osuna-ingeniero-etica-fotografia-terremoto-1967-44848d52fadf.webp"
-    },
-    {
-      "id": 313,
-      "slug": "california-117-perros-enterrados-refugio-sin-sacrificio",
-      "title": "Shock en California: hallazgo macabro de 117 perros enterrados en refugio “sin sacrificio”",
-      "quality_score": 0.83,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/313-california-117-perros-enterrados-refugio-sin-sacrificio-39cdda436a38.webp"
-    },
-    {
-      "id": 281,
-      "slug": "terremoto-venezuela-900-muertos-ayuda-internacional-avianca",
-      "title": "Terremoto en Venezuela: Más de 900 muertos y la comunidad internacional se moviliza para ayudar",
-      "quality_score": 0.88,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/281-terremoto-venezuela-900-muertos-ayuda-internacional-avianca-3c4de232c8c0.svg"
-    },
-    {
-      "id": 277,
-      "slug": "bulos-elecciones-2025-eeuu-desmintiendo-rumores-latinos",
-      "title": "El 2025 llega con una avalancha de bulos sobre las elecciones en Estados Unidos que necesitan ser aclarados",
-      "quality_score": 0.95,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "https://www.univision.com/api/image/og/us/noticias/elecciones-en-estados-unidos-2024"
     }
   ],
   "last_run": {
-    "articles_published": 2,
-    "articles_processed": 210,
+    "articles_published": 3,
+    "articles_processed": 212,
     "images_downloaded": 2,
-    "images_skipped": 204,
+    "images_skipped": 206,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
