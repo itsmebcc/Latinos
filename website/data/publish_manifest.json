@@ -1,12 +1,44 @@
 {
-  "generated_at": "2026-06-29T03:03:39Z",
+  "generated_at": "2026-06-29T06:23:08Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 191,
-    "pending_review": 109,
+    "published": 195,
+    "pending_review": 108,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 377,
+      "slug": "maximo-quiles-vence-moto3-assen-gp-paises-bajos",
+      "title": "Quiles firma una nueva obra maestra en Moto3 en Assen",
+      "quality_score": 0.91,
+      "published_at": "2026-06-29T06:22:56.420515",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/6a40ec44bdb96.jpeg"
+    },
+    {
+      "id": 376,
+      "slug": "suecia-perde-a-hien-en-el-mundial-baja-ante-francia",
+      "title": "Duro golpe para Suecia",
+      "quality_score": 0.91,
+      "published_at": "2026-06-29T06:22:56.420515",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/6a410a9972c50.jpeg"
+    },
+    {
+      "id": 275,
+      "slug": "devastadores-sismos-en-venezuela-reporte-humanitario",
+      "title": "sanctions, Christian Zerpa fleeing Venezuela). However, the \"Categoría asignada\" and \"Resumen del tema\" at the end explicitly define the focus: **Reporte sobre los devastadores sismos en Venezuela**.",
+      "quality_score": 0.94,
+      "published_at": "2026-06-29T06:22:56.420515",
+      "image_url": null
+    },
+    {
+      "id": 375,
+      "slug": "alcaraz-recupera-lesion-apunta-us-open-y-cincinnati",
+      "title": "Alcaraz enciende el semáforo en verde: el camino hacia el US Open",
+      "quality_score": 0.93,
+      "published_at": "2026-06-29T04:23:16.220351",
+      "image_url": "/static/images/articles/375-alcaraz-recupera-lesion-apunta-us-open-y-cincinnati-aa4a53ca3e87.webp"
+    },
     {
       "id": 349,
       "slug": "legado-y-vision-seleccion-usa-mundial-2026",
@@ -54,45 +86,13 @@
       "quality_score": 0.88,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
       "image_url": "/static/images/articles/221-futbol-femenino-copa-mundial-selecciones-no-europeas-6e1f99df734c.webp"
-    },
-    {
-      "id": 215,
-      "slug": "chesebro-arquitecto-plan-trump-puerto-rico",
-      "title": "‘Mentes’ Detrás del Plan Electoral de Trump Se Ocultan en Puerto Rico",
-      "quality_score": 0.82,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/215-chesebro-arquitecto-plan-trump-puerto-rico-1f70e7a16bc3.webp"
-    },
-    {
-      "id": 208,
-      "slug": "maria-y-maui-colonialismo-y-desastre",
-      "title": "María y Maui (OPINIÓN)",
-      "quality_score": 0.8,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/208-maria-y-maui-colonialismo-y-desastre-a0c6ec6f366c.webp"
-    },
-    {
-      "id": 201,
-      "slug": "baloncesto-profesional-puerto-rico-renacimiento",
-      "title": "El baloncesto profesional de Puerto Rico vive un renacimiento",
-      "quality_score": 0.85,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/201-baloncesto-profesional-puerto-rico-renacimiento-9b5b4b7fcd99.webp"
-    },
-    {
-      "id": 195,
-      "slug": "hope-soledad-mujeres-indigenas-mexicanas",
-      "title": "‘Hope, Soledad’ centra los mundos interiores de las mujeres indígenas mexicanas",
-      "quality_score": 0.81,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/195-hope-soledad-mujeres-indigenas-mexicanas-17dc52732324.webp"
     }
   ],
   "last_run": {
-    "articles_published": 0,
-    "articles_processed": 191,
-    "images_downloaded": 5,
-    "images_skipped": 183,
+    "articles_published": 3,
+    "articles_processed": 192,
+    "images_downloaded": 1,
+    "images_skipped": 188,
     "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
