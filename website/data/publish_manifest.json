@@ -1,12 +1,52 @@
 {
-  "generated_at": "2026-06-28T21:17:54Z",
+  "generated_at": "2026-06-29T00:32:27Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 180,
-    "pending_review": 97,
+    "published": 191,
+    "pending_review": 109,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 349,
+      "slug": "legado-y-vision-seleccion-usa-mundial-2026",
+      "title": "Fútbol USA",
+      "quality_score": 0.9,
+      "published_at": "2026-06-29T00:32:12.568532",
+      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-440x220,f_auto,q_auto:best/rockcms/2026-04/GettyImages-2269402544-988d34.jpg"
+    },
+    {
+      "id": 347,
+      "slug": "ter-stegen-al-ajax-cesion-paga-barca-15m",
+      "title": "Ter Stegen le sale a precio de oro al Barça en su viaje a Ámsterdam",
+      "quality_score": 0.93,
+      "published_at": "2026-06-29T00:32:12.568532",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/6a4126a901f79.jpeg"
+    },
+    {
+      "id": 346,
+      "slug": "bielsa-renuncia-seleccion-uruguaya-mundial",
+      "title": "¡Millones a la basura! El argentino dejará de ser seleccionador de la Selección uruguaya",
+      "quality_score": 0.94,
+      "published_at": "2026-06-29T00:32:12.568532",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/27/6a3fd7f02997e.jpeg"
+    },
+    {
+      "id": 344,
+      "slug": "sergi-altimira-al-sporting-de-portugal-185-millones-betis",
+      "title": "El Betis cierra su venta estrella del verano: Sergi Altimira vuela al Sporting de Portugal por 18,5 millones",
+      "quality_score": 0.89,
+      "published_at": "2026-06-29T00:32:12.568532",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/05/15/6a06ec410fc93.jpeg"
+    },
+    {
+      "id": 343,
+      "slug": "fiziev-ko-torres-ufc-baku-sorpresas-y-nuevos-talentos",
+      "title": "Fiziev manda el mensaje: KO espectacular contra Manuel Torres y las sorpresas del UFC Baku",
+      "quality_score": 0.96,
+      "published_at": "2026-06-29T00:32:12.568532",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/27/6a4022fcee86b.jpeg"
+    },
     {
       "id": 221,
       "slug": "futbol-femenino-copa-mundial-selecciones-no-europeas",
@@ -46,52 +86,12 @@
       "quality_score": 0.81,
       "published_at": "2026-06-28T04:46:26.620361+00:00",
       "image_url": "/static/images/articles/195-hope-soledad-mujeres-indigenas-mexicanas-17dc52732324.webp"
-    },
-    {
-      "id": 190,
-      "slug": "elecciones-guatemala-democracia-progresista-semilla",
-      "title": "Democracia en Duda: Cuando las Elecciones Progresistas en Guatemala Casi no Ocurren",
-      "quality_score": 0.8,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/190-elecciones-guatemala-democracia-progresista-semilla-9bf168625001.webp"
-    },
-    {
-      "id": 186,
-      "slug": "american-homeboy-documental-cultura-cholo-identidad-latina",
-      "title": "American Homeboy",
-      "quality_score": 0.9,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/186-american-homeboy-documental-cultura-cholo-identidad-latina-4f924cddcbd3.webp"
-    },
-    {
-      "id": 180,
-      "slug": "juez-ordena-texas-retirar-barrera-flotante-frontera-migrantes",
-      "title": "Un juez ordena a Texas retirar una barrera flotante usada para disuadir migrantes entre EE. UU. y México",
-      "quality_score": 0.85,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/180-juez-ordena-texas-retirar-barrera-flotante-frontera-migrantes-d1174f9fd1a1.webp"
-    },
-    {
-      "id": 173,
-      "slug": "caida-audiencia-medios-latinos-eeuu",
-      "title": "La Audiencia en los Medios Tradicionales Latinos y Afroamericanos de EE. UU. Sigue Cayendo",
-      "quality_score": 0.89,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/173-caida-audiencia-medios-latinos-eeuu-5e0ce2cc56fb.webp"
-    },
-    {
-      "id": 167,
-      "slug": "orden-judicial-autoriza-barrera-flotante-texas-frontera",
-      "title": "Orden Judicial Autoriza que la Barrera Flotante de Texas en la Frontera Permanezca por Ahora",
-      "quality_score": 0.9,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/167-orden-judicial-autoriza-barrera-flotante-texas-frontera-96fc169e28f2.webp"
     }
   ],
   "last_run": {
-    "articles_published": 11,
-    "articles_processed": 169,
-    "images_downloaded": 0,
+    "articles_published": 5,
+    "articles_processed": 186,
+    "images_downloaded": 17,
     "images_skipped": 166,
     "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
