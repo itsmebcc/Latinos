@@ -14,7 +14,7 @@
     <meta property="og:description" content="{% block og_description %}Noticias, cultura y entretenimiento para la comunidad Hispana/Latina.{% endblock %}">
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:url" content="{{ request.url }}">
-    <meta property="og:image" content="{% block og_image %}/static/img/logo-og.png{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}/static/images/latinos-logo-full.png{% endblock %}">
     <link rel="canonical" href="{{ request.url }}">
 
     <!-- Twitter Card -->
@@ -24,7 +24,7 @@
 
     <link rel="alternate" type="application/rss+xml" title="Latinos.org" href="/feed.xml">
     <link rel="manifest" href="/manifest.webmanifest">
-    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <link rel="icon" type="image/png" href="/static/images/latinos-logo-header.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,8 +74,14 @@
         </button>
 
         <!-- Logo -->
-        <a href="/" class="logo">
-            <span class="logo-text">Latinos<span class="logo-accent">.org</span></span>
+        <a href="/" class="logo" aria-label="Latinos.org — Inicio">
+            <img src="/static/images/latinos-logo-header.png"
+                 srcset="/static/images/latinos-logo-header.png 1x"
+                 alt="Latinos.org" class="logo-img logo-img-dark"
+                 width="186" height="40">
+            <img src="/static/images/latinos-logo-header-light.png"
+                 alt="Latinos.org" class="logo-img logo-img-light"
+                 width="186" height="40">
         </a>
 
         <!-- Desktop Nav -->
@@ -116,10 +122,14 @@
 <footer class="site-footer">
     <div class="container footer-inner">
         <div class="footer-col footer-brand">
-            <a href="/" class="logo footer-logo">
-                <span class="logo-text">Latinos<span class="logo-accent">.org</span></span>
+            <a href="/" class="logo footer-logo" aria-label="Latinos.org — Inicio">
+                <img src="/static/images/latinos-logo-full.png"
+                     alt="Latinos.org — Nuestra voz. Nuestra cultura. Nuestro futuro."
+                     class="logo-img logo-img-dark" width="300" height="92">
+                <img src="/static/images/latinos-logo-full-light.png"
+                     alt="Latinos.org — Nuestra voz. Nuestra cultura. Nuestro futuro."
+                     class="logo-img logo-img-light" width="300" height="92">
             </a>
-            <p>Tu voz. Tu comunidad. Tu cultura.</p>
             <p class="footer-tagline">Noticias, cultura y entretenimiento para la comunidad Hispana y Latina en Estados Unidos.</p>
         </div>
 

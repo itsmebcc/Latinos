@@ -56,6 +56,14 @@ body.dark .logo-text {
     color: #f0f0f0;
 }
 
+/* Dark mode: swap to white-recolor logo variants */
+body.dark .site-header .logo-img-dark { display: none; }
+body.dark .site-header .logo-img-light { display: block; }
+
+/* Footer is always dark — always show white logo variant there */
+.footer-logo .logo-img-dark { display: none; }
+.footer-logo .logo-img-light { display: block; }
+
 body.dark .main-nav a {
     color: #e0e0e0;
 }
@@ -250,7 +258,19 @@ img { max-width: 100%; height: auto; display: block; }
     gap: 1rem;
 }
 
-.logo { flex-shrink: 0; }
+.logo { flex-shrink: 0; display: inline-flex; align-items: center; }
+
+.logo-img { height: auto; display: block; }
+
+/* Light mode (default): show navy wordmark, hide white variant */
+.logo-img-dark { display: block; }
+.logo-img-light { display: none; }
+
+/* Header logo constrained to nav height */
+.site-header .logo-img { height: 40px; width: auto; }
+
+/* Footer logo larger */
+.footer-logo .logo-img { width: 300px; }
 
 .logo-text {
     font-family: var(--font-head);
@@ -1345,7 +1365,8 @@ img { max-width: 100%; height: auto; display: block; }
     .footer-inner { grid-template-columns: 1fr; }
 
     .hero-title { font-size: 1.2rem; }
-    .logo-text { font-size: 1.3rem; }
+    .site-header .logo-img { height: 32px; }
+    .footer-logo .logo-img { width: 240px; }
 
     .breaking-content { gap: 0.5rem; }
 }
