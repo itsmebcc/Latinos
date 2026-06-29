@@ -1,99 +1,99 @@
 {
-  "generated_at": "2026-06-29T12:23:44Z",
+  "generated_at": "2026-06-29T15:23:26Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 195,
-    "pending_review": 110,
+    "published": 212,
+    "pending_review": 88,
     "approved": 0
   },
   "latest_published": [
     {
-      "id": 377,
-      "slug": "maximo-quiles-vence-moto3-assen-gp-paises-bajos",
-      "title": "Quiles firma una nueva obra maestra en Moto3 en Assen",
-      "quality_score": 0.91,
-      "published_at": "2026-06-29T06:22:56.420515",
-      "image_url": "/static/images/articles/377-maximo-quiles-vence-moto3-assen-gp-paises-bajos-b983d099719e.webp"
+      "id": 378,
+      "slug": "pedri-gavi-y-olmo-anotan-triple-en-baloncesto-con-la-seleccion",
+      "title": "¡Vaya triple canasta! La Selección afina puntería en la cancha y Pedri, Gavi y Olmo están muy finos",
+      "quality_score": 0.92,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "/static/images/articles/378-pedri-gavi-y-olmo-anotan-triple-en-baloncesto-con-la-seleccion-17f244b47716.webp"
     },
     {
-      "id": 376,
-      "slug": "suecia-perde-a-hien-en-el-mundial-baja-ante-francia",
-      "title": "Duro golpe para Suecia",
-      "quality_score": 0.91,
-      "published_at": "2026-06-29T06:22:56.420515",
-      "image_url": "/static/images/articles/376-suecia-perde-a-hien-en-el-mundial-baja-ante-francia-18259b9a674b.webp"
+      "id": 374,
+      "slug": "cristiano-ronaldo-rodrygo-reencuentro-lesion",
+      "title": "El bonito reencuentro entre Cristiano Ronaldo y Rodrygo: el portugués se preocupó por su lesión",
+      "quality_score": 0.83,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "/static/images/articles/374-cristiano-ronaldo-rodrygo-reencuentro-lesion-2f9db4b63742.webp"
     },
     {
-      "id": 275,
-      "slug": "devastadores-sismos-en-venezuela-reporte-humanitario",
-      "title": "sanctions, Christian Zerpa fleeing Venezuela). However, the \"Categoría asignada\" and \"Resumen del tema\" at the end explicitly define the focus: **Reporte sobre los devastadores sismos en Venezuela**.",
-      "quality_score": 0.94,
-      "published_at": "2026-06-29T06:22:56.420515",
-      "image_url": null
+      "id": 358,
+      "slug": "rookie-sixers-burla-sengun-juega-con-nevera-en-espalda",
+      "title": "¡Zasca rookie! El novato de los Sixers le soltó una bomba al All-Star de los Rockets: \"Juega como si tuviera una nevera en la espalda\"",
+      "quality_score": 0.85,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "/static/images/articles/358-rookie-sixers-burla-sengun-juega-con-nevera-en-espalda-e74ac2d16d77.webp"
     },
     {
-      "id": 375,
-      "slug": "alcaraz-recupera-lesion-apunta-us-open-y-cincinnati",
-      "title": "Alcaraz enciende el semáforo en verde: el camino hacia el US Open",
-      "quality_score": 0.93,
-      "published_at": "2026-06-29T04:23:16.220351",
-      "image_url": "/static/images/articles/375-alcaraz-recupera-lesion-apunta-us-open-y-cincinnati-aa4a53ca3e87.webp"
-    },
-    {
-      "id": 349,
-      "slug": "legado-y-vision-seleccion-usa-mundial-2026",
-      "title": "Fútbol USA",
-      "quality_score": 0.9,
-      "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "/static/images/articles/349-legado-y-vision-seleccion-usa-mundial-2026-6a96ea375132.webp"
-    },
-    {
-      "id": 347,
-      "slug": "ter-stegen-al-ajax-cesion-paga-barca-15m",
-      "title": "Ter Stegen le sale a precio de oro al Barça en su viaje a Ámsterdam",
-      "quality_score": 0.93,
-      "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "/static/images/articles/347-ter-stegen-al-ajax-cesion-paga-barca-15m-4a1e12240d32.webp"
-    },
-    {
-      "id": 346,
-      "slug": "bielsa-renuncia-seleccion-uruguaya-mundial",
-      "title": "¡Millones a la basura! El argentino dejará de ser seleccionador de la Selección uruguaya",
-      "quality_score": 0.94,
-      "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "/static/images/articles/346-bielsa-renuncia-seleccion-uruguaya-mundial-3146a8be3e39.webp"
-    },
-    {
-      "id": 344,
-      "slug": "sergi-altimira-al-sporting-de-portugal-185-millones-betis",
-      "title": "El Betis cierra su venta estrella del verano: Sergi Altimira vuela al Sporting de Portugal por 18,5 millones",
+      "id": 335,
+      "slug": "zlatan-ibrahimovic-francia-bestia-derrotar-suecia-nueva-york",
+      "title": "Zlatan Ibrahimovic no deja dudas: Francia es la bestia a derrotar en Nueva York",
       "quality_score": 0.89,
-      "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "/static/images/articles/344-sergi-altimira-al-sporting-de-portugal-185-millones-betis-0bfcebc48691.webp"
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "/static/images/articles/335-zlatan-ibrahimovic-francia-bestia-derrotar-suecia-nueva-york-937366094d86.webp"
     },
     {
-      "id": 343,
-      "slug": "fiziev-ko-torres-ufc-baku-sorpresas-y-nuevos-talentos",
-      "title": "Fiziev manda el mensaje: KO espectacular contra Manuel Torres y las sorpresas del UFC Baku",
-      "quality_score": 0.96,
-      "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "/static/images/articles/343-fiziev-ko-torres-ufc-baku-sorpresas-y-nuevos-talentos-b2267040fd5f.webp"
+      "id": 321,
+      "slug": "g7-narcotrafico-batalla-legal-washington-maduro",
+      "title": "Título: G7, Narcotráfico y Maduro: La Batalla Legal de Washington Contra las Redes del Crimen",
+      "quality_score": 0.9,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "https://www.univision.com/api/image/og/us/noticias/narcotrafico"
     },
     {
-      "id": 221,
-      "slug": "futbol-femenino-copa-mundial-selecciones-no-europeas",
-      "title": "Un Campo Más Plano",
+      "id": 319,
+      "slug": "raul-osuna-ingeniero-etica-fotografia-terremoto-1967",
+      "title": "title: El legado de un ingeniero venezolano: Cómo el temblor de 1967 definió una vida de ética y fotografía",
+      "quality_score": 0.86,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "/static/images/articles/319-raul-osuna-ingeniero-etica-fotografia-terremoto-1967-44848d52fadf.webp"
+    },
+    {
+      "id": 313,
+      "slug": "california-117-perros-enterrados-refugio-sin-sacrificio",
+      "title": "Shock en California: hallazgo macabro de 117 perros enterrados en refugio “sin sacrificio”",
+      "quality_score": 0.83,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "https://www.univision.com/api/image/og/us/noticias/justicia/el-horror-en-un-refugio-de-animales-en-california-encuentran-mas-de-100-perros-enterrados-en-fosas"
+    },
+    {
+      "id": 281,
+      "slug": "terremoto-venezuela-900-muertos-ayuda-internacional-avianca",
+      "title": "Terremoto en Venezuela: Más de 900 muertos y la comunidad internacional se moviliza para ayudar",
       "quality_score": 0.88,
-      "published_at": "2026-06-28T04:46:26.620361+00:00",
-      "image_url": "/static/images/articles/221-futbol-femenino-copa-mundial-selecciones-no-europeas-6e1f99df734c.webp"
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "/static/images/articles/281-terremoto-venezuela-900-muertos-ayuda-internacional-avianca-3c4de232c8c0.svg"
+    },
+    {
+      "id": 277,
+      "slug": "bulos-elecciones-2025-eeuu-desmintiendo-rumores-latinos",
+      "title": "El 2025 llega con una avalancha de bulos sobre las elecciones en Estados Unidos que necesitan ser aclarados",
+      "quality_score": 0.95,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "https://www.univision.com/api/image/og/us/noticias/elecciones-en-estados-unidos-2024"
+    },
+    {
+      "id": 252,
+      "slug": "terremoto-venezuela-balance-danos-rescate",
+      "title": "Terremotos en Venezuela: Cuatro días de dolor y esperanza en medio del caos",
+      "quality_score": 0.88,
+      "published_at": "2026-06-29T15:22:33.515204",
+      "image_url": "/static/images/articles/252-terremoto-venezuela-balance-danos-rescate-da2b4b6e358d.webp"
     }
   ],
   "last_run": {
     "articles_published": 0,
-    "articles_processed": 195,
-    "images_downloaded": 0,
+    "articles_processed": 212,
+    "images_downloaded": 13,
     "images_skipped": 192,
-    "images_failed": 3,
+    "images_failed": 7,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
     "pushed": false,
