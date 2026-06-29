@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-29T06:23:08Z",
+  "generated_at": "2026-06-29T09:24:03Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 195,
-    "pending_review": 108,
+    "pending_review": 109,
     "approved": 0
   },
   "latest_published": [
@@ -13,7 +13,7 @@
       "title": "Quiles firma una nueva obra maestra en Moto3 en Assen",
       "quality_score": 0.91,
       "published_at": "2026-06-29T06:22:56.420515",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/6a40ec44bdb96.jpeg"
+      "image_url": "/static/images/articles/377-maximo-quiles-vence-moto3-assen-gp-paises-bajos-b983d099719e.webp"
     },
     {
       "id": 376,
@@ -21,7 +21,7 @@
       "title": "Duro golpe para Suecia",
       "quality_score": 0.91,
       "published_at": "2026-06-29T06:22:56.420515",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/6a410a9972c50.jpeg"
+      "image_url": "/static/images/articles/376-suecia-perde-a-hien-en-el-mundial-baja-ante-francia-18259b9a674b.webp"
     },
     {
       "id": 275,
@@ -89,10 +89,10 @@
     }
   ],
   "last_run": {
-    "articles_published": 3,
-    "articles_processed": 192,
-    "images_downloaded": 1,
-    "images_skipped": 188,
+    "articles_published": 0,
+    "articles_processed": 195,
+    "images_downloaded": 2,
+    "images_skipped": 190,
     "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
