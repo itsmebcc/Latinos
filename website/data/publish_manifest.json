@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T18:16:23Z",
+  "generated_at": "2026-06-29T21:13:39Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 215,
@@ -21,7 +21,7 @@
       "title": "Portugal y Colombia se van de manos en un 0-0 táctico en la Copa Mundial 2026",
       "quality_score": 0.89,
       "published_at": "2026-06-29T18:16:20.306618",
-      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-80x80,f_auto,q_auto:best/telemundocms/MPX/image/NBCU_Telemundo/977/910/46817415268-1080pnbcstations.jpg"
+      "image_url": "/static/images/articles/409-portugal-vs-colombia-0-0-mundial-2026-c2532b2a3c82.webp"
     },
     {
       "id": 407,
@@ -89,10 +89,10 @@
     }
   ],
   "last_run": {
-    "articles_published": 3,
-    "articles_processed": 212,
-    "images_downloaded": 2,
-    "images_skipped": 206,
+    "articles_published": 0,
+    "articles_processed": 215,
+    "images_downloaded": 1,
+    "images_skipped": 210,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
