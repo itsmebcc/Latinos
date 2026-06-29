@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T00:32:27Z",
+  "generated_at": "2026-06-29T03:03:39Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 191,
@@ -13,7 +13,7 @@
       "title": "Fútbol USA",
       "quality_score": 0.9,
       "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-440x220,f_auto,q_auto:best/rockcms/2026-04/GettyImages-2269402544-988d34.jpg"
+      "image_url": "/static/images/articles/349-legado-y-vision-seleccion-usa-mundial-2026-6a96ea375132.webp"
     },
     {
       "id": 347,
@@ -21,7 +21,7 @@
       "title": "Ter Stegen le sale a precio de oro al Barça en su viaje a Ámsterdam",
       "quality_score": 0.93,
       "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/6a4126a901f79.jpeg"
+      "image_url": "/static/images/articles/347-ter-stegen-al-ajax-cesion-paga-barca-15m-4a1e12240d32.webp"
     },
     {
       "id": 346,
@@ -29,7 +29,7 @@
       "title": "¡Millones a la basura! El argentino dejará de ser seleccionador de la Selección uruguaya",
       "quality_score": 0.94,
       "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/27/6a3fd7f02997e.jpeg"
+      "image_url": "/static/images/articles/346-bielsa-renuncia-seleccion-uruguaya-mundial-3146a8be3e39.webp"
     },
     {
       "id": 344,
@@ -37,7 +37,7 @@
       "title": "El Betis cierra su venta estrella del verano: Sergi Altimira vuela al Sporting de Portugal por 18,5 millones",
       "quality_score": 0.89,
       "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/05/15/6a06ec410fc93.jpeg"
+      "image_url": "/static/images/articles/344-sergi-altimira-al-sporting-de-portugal-185-millones-betis-0bfcebc48691.webp"
     },
     {
       "id": 343,
@@ -45,7 +45,7 @@
       "title": "Fiziev manda el mensaje: KO espectacular contra Manuel Torres y las sorpresas del UFC Baku",
       "quality_score": 0.96,
       "published_at": "2026-06-29T00:32:12.568532",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/27/6a4022fcee86b.jpeg"
+      "image_url": "/static/images/articles/343-fiziev-ko-torres-ufc-baku-sorpresas-y-nuevos-talentos-b2267040fd5f.webp"
     },
     {
       "id": 221,
@@ -89,10 +89,10 @@
     }
   ],
   "last_run": {
-    "articles_published": 5,
-    "articles_processed": 186,
-    "images_downloaded": 17,
-    "images_skipped": 166,
+    "articles_published": 0,
+    "articles_processed": 191,
+    "images_downloaded": 5,
+    "images_skipped": 183,
     "images_failed": 3,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
