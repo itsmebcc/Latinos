@@ -1,98 +1,98 @@
 {
-  "generated_at": "2026-06-30T03:15:04Z",
+  "generated_at": "2026-06-30T06:16:56Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 302,
-    "pending_review": 76,
+    "published": 312,
+    "pending_review": 86,
     "approved": 0
   },
   "latest_published": [
     {
-      "id": 461,
-      "slug": "eustaquio-gol-canada-octavos-copa-mundo-2026",
-      "title": "Eustáquio estrena su garra en la Copa del Mundo y pone a Canadá con ventaja ante Sudáfrica en octavos",
-      "quality_score": 0.88,
-      "published_at": "2026-06-30T03:15:00.333030",
-      "image_url": null
+      "id": 463,
+      "slug": "trump-celebra-mundial-2026-record-asistencia",
+      "title": "Donald Trump saca pecho por el Mundial 2026: \"Es un gran homenaje a Estados Unidos\"",
+      "quality_score": 0.94,
+      "published_at": "2026-06-30T06:16:48.244734",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/29/6a420ed3d6cf6.jpeg"
     },
     {
-      "id": 458,
-      "slug": "ecuador-vence-alemania-2-1-mundial-2026-clasificacion",
-      "title": "Histórica: Ecuador se impone 2-1 a Alemania y se clasifica a la fase eliminatoria del Mundial 2026",
-      "quality_score": 0.9,
-      "published_at": "2026-06-30T03:15:00.333030",
-      "image_url": null
-    },
-    {
-      "id": 450,
-      "slug": "brasil-vs-japon-mundial-2026-ancelotti",
-      "title": "Brasil vs Japón en el Mundial 2026: Ancelotti exige mente, corazón y fútbol claro ante la eliminatoria de vida o muerte",
-      "quality_score": 0.9,
-      "published_at": "2026-06-30T03:15:00.333030",
-      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-760x380,f_auto,q_auto:best/rockcms/2026-06/70643604d6dd6ea33e197ce363b7241fa9e06f95w-1-ca348d.jpg"
-    },
-    {
-      "id": 447,
-      "slug": "ola-de-calor-historica-eeuu-142-millones-alerta",
-      "title": "Ola de calor histórica en EE. UU. antes del 4 de julio: 142 millones de personas bajo alerta extrema",
-      "quality_score": 0.89,
-      "published_at": "2026-06-30T03:15:00.333030",
-      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-440x220,f_auto,q_auto:best/rockcms/2026-06/2690627-europe-heat-wave-ww-1155-fef61d.jpg"
-    },
-    {
-      "id": 445,
-      "slug": "como-activar-alerta-terremotos-android",
-      "title": "Alerta de terremotos en Android: así activas el aviso gratuito que da segundos clave antes de un sismo",
-      "quality_score": 0.89,
-      "published_at": "2026-06-30T03:15:00.333030",
-      "image_url": null
-    },
-    {
-      "id": 415,
-      "slug": "mahrez-dobleto-descuento-elimina-austria-mundial-2026",
-      "title": "El rugido de Mahrez: Argelia le arranca el mundial a Austria en el tiempo de descuento",
-      "quality_score": 0.85,
-      "published_at": "2026-06-30T02:05:21.458112",
-      "image_url": null
-    },
-    {
-      "id": 411,
-      "slug": "lo-celso-debut-mundial-2026-argentina",
-      "title": "Lo Celso: “Esperé mucho este momento de…”: así habló el profe tras su debut en el Mundial 2026",
-      "quality_score": 0.89,
-      "published_at": "2026-06-30T02:05:21.458112",
-      "image_url": null
-    },
-    {
-      "id": 370,
-      "slug": "carlos-alcaraz-ya-entrena-sin-munquera-avances-recuperacion",
-      "title": "Carlos Alcaraz confirma avances en su recuperación: ya entrena sin muñequera",
+      "id": 462,
+      "slug": "mississippi-ley-registro-indocumentados-sb2114",
+      "title": "¿Lista negra migrante? Mississippi aprueba ley para registrar a indocumentados y preocupa a la comunidad",
       "quality_score": 0.8,
-      "published_at": "2026-06-30T02:05:21.458112",
-      "image_url": "/static/images/articles/370-carlos-alcaraz-ya-entrena-sin-munquera-avances-recuperacion-90ef47bab05c.webp"
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/462-mississippi-ley-registro-indocumentados-sb2114-d0b732f603e0.webp"
     },
     {
-      "id": 242,
-      "slug": "trump-advierte-guerra-total-eeuu-iran-intensifican-ataques",
-      "title": "Trump advierte guerra total mientras EE.UU. e Irán intensifican ataques en el Medio Oriente",
-      "quality_score": 0.83,
-      "published_at": "2026-06-30T02:05:21.458112",
-      "image_url": "/static/images/articles/242-trump-advierte-guerra-total-eeuu-iran-intensifican-ataques-b37a0762c76b.webp"
-    },
-    {
-      "id": 441,
-      "slug": "deportado-venezuela-antes-terremoto-dolor-madre",
-      "title": "Deportado a Venezuela horas antes del sismo: el doloroso desenlace de Ángelo y la espera de su madre",
-      "quality_score": 0.81,
-      "published_at": "2026-06-30T01:56:14.157876",
+      "id": 460,
+      "slug": "terremoto-venezuela-futbolistas-loran-a-familiares-entre-escombros",
+      "title": "Corazón Partido en Venezuela: Futbolistas Lloran a sus Familiares Entre los Escombros",
+      "quality_score": 0.8,
+      "published_at": "2026-06-30T04:29:00.124647",
       "image_url": null
+    },
+    {
+      "id": 459,
+      "slug": "hallan-sin-vida-familia-lucas-trejo-venezuela-sismo",
+      "title": "Duelo en Playa Grande: hallan sin vida a la esposa e hijos del futbolista Lucas Trejo tras 74 horas de búsqueda",
+      "quality_score": 0.8,
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/459-hallan-sin-vida-familia-lucas-trejo-venezuela-sismo-1113a2cb9bf1.webp"
+    },
+    {
+      "id": 457,
+      "slug": "sangre-y-sudor-latino-que-forjo-eeuu",
+      "title": "Más que un sueño americano: la sangre y el sudor latino que forjaron EE.UU.",
+      "quality_score": 0.81,
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/457-sangre-y-sudor-latino-que-forjo-eeuu-7025f15ee3c6.webp"
+    },
+    {
+      "id": 456,
+      "slug": "doblete-pepe-costa-de-marfil-clasificacion-mundial-2026",
+      "title": "El doblete de Pépé le da el pase a Costa de Marfil a la ronda final de la Copa Mundial 2026",
+      "quality_score": 0.83,
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/456-doblete-pepe-costa-de-marfil-clasificacion-mundial-2026-6442d2544b61.webp"
+    },
+    {
+      "id": 451,
+      "slug": "sudafrica-clasifica-a-octavos-mundial-2026-maseko",
+      "title": "Sudáfrica derrota a Corea del Sur y...",
+      "quality_score": 0.8,
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/451-sudafrica-clasifica-a-octavos-mundial-2026-maseko-286083a0099d.webp"
+    },
+    {
+      "id": 449,
+      "slug": "legado-latinos-fuerzas-armadas-siglos-de-honor",
+      "title": "Más de dos siglos de honor: el legado inquebrantable de los latinos en las Fuerzas Armadas",
+      "quality_score": 0.84,
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/449-legado-latinos-fuerzas-armadas-siglos-de-honor-c349417da54d.webp"
+    },
+    {
+      "id": 446,
+      "slug": "benfica-confirma-primeros-fichajes-grimaldo-kang-in-lee",
+      "title": "¿Se viene la nueva era del Benfica? Ya confirman sus primeros refuerzos",
+      "quality_score": 0.84,
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/446-benfica-confirma-primeros-fichajes-grimaldo-kang-in-lee-dc0e6598c462.webp"
+    },
+    {
+      "id": 444,
+      "slug": "terremotos-venezuela-1719-muertos-rescate-comunidad-latina",
+      "title": "Terremotos en Venezuela: 1,719 muertos, miles de heridos y el rescate que no se detiene",
+      "quality_score": 0.83,
+      "published_at": "2026-06-30T04:29:00.124647",
+      "image_url": "/static/images/articles/444-terremotos-venezuela-1719-muertos-rescate-comunidad-latina-da2b4b6e358d.webp"
     }
   ],
   "last_run": {
-    "articles_published": 5,
-    "articles_processed": 297,
-    "images_downloaded": 3,
-    "images_skipped": 290,
+    "articles_published": 1,
+    "articles_processed": 311,
+    "images_downloaded": 10,
+    "images_skipped": 297,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
