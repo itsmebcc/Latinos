@@ -1,12 +1,84 @@
 {
-  "generated_at": "2026-06-29T21:13:39Z",
+  "generated_at": "2026-06-30T00:20:38Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 215,
-    "pending_review": 123,
+    "published": 224,
+    "pending_review": 134,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 440,
+      "slug": "vini-junior-emociona-abuela-ley-vini-mundial-brasil",
+      "title": "Vini Júnior llora, habla de su abuela y pone la mesa antes del Mundial",
+      "quality_score": 0.85,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/29/6a41a8a7468cb.png"
+    },
+    {
+      "id": 429,
+      "slug": "sudafrica-vs-canada-la-mundial-2026",
+      "title": "Bafana Bafana vs Canadá en Los Ángeles: Sudáfrica arranca su eliminatoria con ritmo, fe y sin miedos",
+      "quality_score": 0.88,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": null
+    },
+    {
+      "id": 426,
+      "slug": "canada-octavos-mundial-volea-historica-primera-vez",
+      "title": "Volea de infarto en el minuto final: Canadá cruza a octavos de final por primera vez en su historia",
+      "quality_score": 0.88,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/c01bo1gGOuD5kAWUt.jpeg"
+    },
+    {
+      "id": 425,
+      "slug": "canada-1-0-sudafrica-mundial-2026-octavos",
+      "title": "¿Hasta el último suspiro? Canadá le arrebata a Sudáfrica en los dieciseisavos del Mundial 2026",
+      "quality_score": 0.89,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/c01po1gGOvqEqPahn.jpeg"
+    },
+    {
+      "id": 424,
+      "slug": "alfaro-responde-a-chilavert-mundial-2026-alemania",
+      "title": "'Péguenme a mí': Gustavo Alfaro responde a Chilavert y pone la mira en Alemania para el Mundial 2026",
+      "quality_score": 0.87,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/28/6a4197da5c390.jpeg"
+    },
+    {
+      "id": 383,
+      "slug": "brigadista-mexico-busca-sobrevivientes-caraballeda",
+      "title": "Esperanza viva en Caraballeda: brigadista mexicano localiza tres cuerpos y busca sobrevivientes entre los escombros",
+      "quality_score": 0.85,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-440x220,f_auto,q_auto:best/telemundocms/MPX/image/NBCU_Telemundo/979/363/46819196035-1080pnbcstations.jpg"
+    },
+    {
+      "id": 259,
+      "slug": "sismo-cuba-6-4-florida-teen-takeovers-eeuu-disturbios",
+      "title": "**Title:** Sismo en Cuba, disturbios urbanos y la semana en video que no te puedes perder",
+      "quality_score": 0.9,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": null
+    },
+    {
+      "id": 258,
+      "slug": "incertidumbre-migratoria-deportaciones-y-ayuda-legal-para-latinos",
+      "title": "*   *Snippet 5:* Dreamers fear personal data (including family IDs used in DACA) will be used for deportation.",
+      "quality_score": 0.93,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": null
+    },
+    {
+      "id": 244,
+      "slug": "inmigracion-y-justicia-comunidad-latina-impacto-hoy",
+      "title": "Inmigración y Justicia: Lo que la comunidad latina necesita saber hoy",
+      "quality_score": 0.91,
+      "published_at": "2026-06-30T00:20:34.176222",
+      "image_url": null
+    },
     {
       "id": 420,
       "slug": "mahrez-zurda-clasifica-argelia-austria-octavos-mundial-2026",
@@ -14,85 +86,13 @@
       "quality_score": 0.9,
       "published_at": "2026-06-29T18:16:20.306618",
       "image_url": null
-    },
-    {
-      "id": 409,
-      "slug": "portugal-vs-colombia-0-0-mundial-2026",
-      "title": "Portugal y Colombia se van de manos en un 0-0 táctico en la Copa Mundial 2026",
-      "quality_score": 0.89,
-      "published_at": "2026-06-29T18:16:20.306618",
-      "image_url": "/static/images/articles/409-portugal-vs-colombia-0-0-mundial-2026-c2532b2a3c82.webp"
-    },
-    {
-      "id": 407,
-      "slug": "arnautovic-clasifica-a-austria-a-octavos-mundial-2026",
-      "title": "Arnautovic despierta y, con un certero remate, le abre las puertas de octavos a Austria",
-      "quality_score": 0.85,
-      "published_at": "2026-06-29T18:16:20.306618",
-      "image_url": null
-    },
-    {
-      "id": 401,
-      "slug": "darializa-avila-vence-a-espaillat-redefine-liderazgo-latino",
-      "title": "Adiós al veterano: cómo la victoria de Darializa Ávila redefine el liderazgo latino en el Congreso",
-      "quality_score": 0.85,
-      "published_at": "2026-06-29T15:27:46.067528",
-      "image_url": "/static/images/articles/401-darializa-avila-vence-a-espaillat-redefine-liderazgo-latino-df7961533b7e.webp"
-    },
-    {
-      "id": 397,
-      "slug": "messi-anota-su-sexto-gol-en-la-copa-con-tiro-libre-de-pelicula",
-      "title": "Messi deslumbra: el 10 convierte su sexta diana en la Copa con un tiro libre de película",
-      "quality_score": 0.85,
-      "published_at": "2026-06-29T15:27:46.067528",
-      "image_url": "/static/images/articles/397-messi-anota-su-sexto-gol-en-la-copa-con-tiro-libre-de-pelicula-6d3ba8fd74cc.webp"
-    },
-    {
-      "id": 378,
-      "slug": "pedri-gavi-y-olmo-anotan-triple-en-baloncesto-con-la-seleccion",
-      "title": "¡Vaya triple canasta! La Selección afina puntería en la cancha y Pedri, Gavi y Olmo están muy finos",
-      "quality_score": 0.92,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/378-pedri-gavi-y-olmo-anotan-triple-en-baloncesto-con-la-seleccion-17f244b47716.webp"
-    },
-    {
-      "id": 374,
-      "slug": "cristiano-ronaldo-rodrygo-reencuentro-lesion",
-      "title": "El bonito reencuentro entre Cristiano Ronaldo y Rodrygo: el portugués se preocupó por su lesión",
-      "quality_score": 0.83,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/374-cristiano-ronaldo-rodrygo-reencuentro-lesion-2f9db4b63742.webp"
-    },
-    {
-      "id": 358,
-      "slug": "rookie-sixers-burla-sengun-juega-con-nevera-en-espalda",
-      "title": "¡Zasca rookie! El novato de los Sixers le soltó una bomba al All-Star de los Rockets: \"Juega como si tuviera una nevera en la espalda\"",
-      "quality_score": 0.85,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/358-rookie-sixers-burla-sengun-juega-con-nevera-en-espalda-e74ac2d16d77.webp"
-    },
-    {
-      "id": 335,
-      "slug": "zlatan-ibrahimovic-francia-bestia-derrotar-suecia-nueva-york",
-      "title": "Zlatan Ibrahimovic no deja dudas: Francia es la bestia a derrotar en Nueva York",
-      "quality_score": 0.89,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/335-zlatan-ibrahimovic-francia-bestia-derrotar-suecia-nueva-york-937366094d86.webp"
-    },
-    {
-      "id": 319,
-      "slug": "raul-osuna-ingeniero-etica-fotografia-terremoto-1967",
-      "title": "title: El legado de un ingeniero venezolano: Cómo el temblor de 1967 definió una vida de ética y fotografía",
-      "quality_score": 0.86,
-      "published_at": "2026-06-29T15:22:33.515204",
-      "image_url": "/static/images/articles/319-raul-osuna-ingeniero-etica-fotografia-terremoto-1967-44848d52fadf.webp"
     }
   ],
   "last_run": {
-    "articles_published": 0,
+    "articles_published": 9,
     "articles_processed": 215,
-    "images_downloaded": 1,
-    "images_skipped": 210,
+    "images_downloaded": 0,
+    "images_skipped": 211,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
