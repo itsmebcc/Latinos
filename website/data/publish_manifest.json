@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T09:15:23Z",
+  "generated_at": "2026-06-30T12:14:05Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 313,
-    "pending_review": 104,
+    "pending_review": 124,
     "approved": 0
   },
   "latest_published": [
@@ -13,7 +13,7 @@
       "title": "Bella Hadid enciende las alarmas tras un nuevo brote de la enfermedad de Lyme",
       "quality_score": 0.9,
       "published_at": "2026-06-30T09:15:14.276755",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/29/6a42161a08c2e.jpeg"
+      "image_url": "/static/images/articles/483-bella-hadid-nuevo-brote-enfermedad-lyme-96bd7f88a40b.webp"
     },
     {
       "id": 463,
@@ -89,10 +89,10 @@
     }
   ],
   "last_run": {
-    "articles_published": 1,
-    "articles_processed": 312,
+    "articles_published": 0,
+    "articles_processed": 313,
     "images_downloaded": 1,
-    "images_skipped": 307,
+    "images_skipped": 308,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
