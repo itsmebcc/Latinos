@@ -1,12 +1,20 @@
 {
-  "generated_at": "2026-06-30T12:14:05Z",
+  "generated_at": "2026-06-30T15:15:35Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 313,
-    "pending_review": 124,
+    "published": 314,
+    "pending_review": 142,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 522,
+      "slug": "pedri-control-tenis-espana-austria",
+      "title": "¡Esto no es normal! Pedri deja estupefactos con un control de locura usando una pelota de tenis",
+      "quality_score": 0.9,
+      "published_at": "2026-06-30T15:15:32.755000",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/29/c0u1E1gGbMZTRxp5d.jpeg"
+    },
     {
       "id": 483,
       "slug": "bella-hadid-nuevo-brote-enfermedad-lyme",
@@ -78,21 +86,13 @@
       "quality_score": 0.84,
       "published_at": "2026-06-30T04:29:00.124647",
       "image_url": "/static/images/articles/449-legado-latinos-fuerzas-armadas-siglos-de-honor-c349417da54d.webp"
-    },
-    {
-      "id": 446,
-      "slug": "benfica-confirma-primeros-fichajes-grimaldo-kang-in-lee",
-      "title": "¿Se viene la nueva era del Benfica? Ya confirman sus primeros refuerzos",
-      "quality_score": 0.84,
-      "published_at": "2026-06-30T04:29:00.124647",
-      "image_url": "/static/images/articles/446-benfica-confirma-primeros-fichajes-grimaldo-kang-in-lee-dc0e6598c462.webp"
     }
   ],
   "last_run": {
-    "articles_published": 0,
+    "articles_published": 1,
     "articles_processed": 313,
-    "images_downloaded": 1,
-    "images_skipped": 308,
+    "images_downloaded": 0,
+    "images_skipped": 309,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
