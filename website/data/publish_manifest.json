@@ -1,12 +1,52 @@
 {
-  "generated_at": "2026-06-30T02:06:28Z",
+  "generated_at": "2026-06-30T03:15:04Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 297,
-    "pending_review": 61,
+    "published": 302,
+    "pending_review": 76,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 461,
+      "slug": "eustaquio-gol-canada-octavos-copa-mundo-2026",
+      "title": "Eustáquio estrena su garra en la Copa del Mundo y pone a Canadá con ventaja ante Sudáfrica en octavos",
+      "quality_score": 0.88,
+      "published_at": "2026-06-30T03:15:00.333030",
+      "image_url": null
+    },
+    {
+      "id": 458,
+      "slug": "ecuador-vence-alemania-2-1-mundial-2026-clasificacion",
+      "title": "Histórica: Ecuador se impone 2-1 a Alemania y se clasifica a la fase eliminatoria del Mundial 2026",
+      "quality_score": 0.9,
+      "published_at": "2026-06-30T03:15:00.333030",
+      "image_url": null
+    },
+    {
+      "id": 450,
+      "slug": "brasil-vs-japon-mundial-2026-ancelotti",
+      "title": "Brasil vs Japón en el Mundial 2026: Ancelotti exige mente, corazón y fútbol claro ante la eliminatoria de vida o muerte",
+      "quality_score": 0.9,
+      "published_at": "2026-06-30T03:15:00.333030",
+      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-760x380,f_auto,q_auto:best/rockcms/2026-06/70643604d6dd6ea33e197ce363b7241fa9e06f95w-1-ca348d.jpg"
+    },
+    {
+      "id": 447,
+      "slug": "ola-de-calor-historica-eeuu-142-millones-alerta",
+      "title": "Ola de calor histórica en EE. UU. antes del 4 de julio: 142 millones de personas bajo alerta extrema",
+      "quality_score": 0.89,
+      "published_at": "2026-06-30T03:15:00.333030",
+      "image_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-440x220,f_auto,q_auto:best/rockcms/2026-06/2690627-europe-heat-wave-ww-1155-fef61d.jpg"
+    },
+    {
+      "id": 445,
+      "slug": "como-activar-alerta-terremotos-android",
+      "title": "Alerta de terremotos en Android: así activas el aviso gratuito que da segundos clave antes de un sismo",
+      "quality_score": 0.89,
+      "published_at": "2026-06-30T03:15:00.333030",
+      "image_url": null
+    },
     {
       "id": 415,
       "slug": "mahrez-dobleto-descuento-elimina-austria-mundial-2026",
@@ -46,54 +86,14 @@
       "quality_score": 0.81,
       "published_at": "2026-06-30T01:56:14.157876",
       "image_url": null
-    },
-    {
-      "id": 436,
-      "slug": "sudafrica-vs-canada-mundial-2026-bafana-bafana-anfitriones",
-      "title": "Sudáfrica arranca su aventura canadiense: ¿puede Bafana Bafana tumbar a los anfitriones?",
-      "quality_score": 0.8,
-      "published_at": "2026-06-30T01:56:14.157876",
-      "image_url": null
-    },
-    {
-      "id": 435,
-      "slug": "kilaea-erupcion-50-record-historico-hawaii",
-      "title": "Kīlauea rompe récords: el volcán hawaiano celebra su erupción #50 con un hecho histórico",
-      "quality_score": 0.86,
-      "published_at": "2026-06-30T01:56:14.157876",
-      "image_url": null
-    },
-    {
-      "id": 434,
-      "slug": "ronaldo-le-echo-a-zidane-del-vestuario-mundial-2006",
-      "title": "Ronaldo le echó a Zidane del vestuario de Brasil en el 06: \"Los chicos lloraban, no era momento de firmar camisetas\"",
-      "quality_score": 0.86,
-      "published_at": "2026-06-30T01:56:14.157876",
-      "image_url": "/static/images/articles/434-ronaldo-le-echo-a-zidane-del-vestuario-mundial-2006-04a75dbfa0b2.webp"
-    },
-    {
-      "id": 432,
-      "slug": "familia-judia-y-arabe-en-israel-amor-cruza-fronteras",
-      "title": "Donde el corazón no entiende de mapas: el amor que une a judíos y árabes en Israel",
-      "quality_score": 0.83,
-      "published_at": "2026-06-30T01:56:14.157876",
-      "image_url": null
-    },
-    {
-      "id": 427,
-      "slug": "canada-vence-sudafrica-octavos-mundial-2026",
-      "title": "De soñados a élite: Canadá le vence a Sudáfrica y arrasa a octavos con un gol de Eustaquio",
-      "quality_score": 0.89,
-      "published_at": "2026-06-30T01:56:14.157876",
-      "image_url": "/static/images/articles/427-canada-vence-sudafrica-octavos-mundial-2026-e1c174982683.webp"
     }
   ],
   "last_run": {
-    "articles_published": 0,
+    "articles_published": 5,
     "articles_processed": 297,
-    "images_downloaded": 0,
+    "images_downloaded": 3,
     "images_skipped": 290,
-    "images_failed": 7,
+    "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
     "pushed": false,
