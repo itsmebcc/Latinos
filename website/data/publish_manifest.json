@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-30T15:15:35Z",
+  "generated_at": "2026-06-30T18:14:55Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 314,
-    "pending_review": 142,
+    "pending_review": 161,
     "approved": 0
   },
   "latest_published": [
@@ -13,7 +13,7 @@
       "title": "¡Esto no es normal! Pedri deja estupefactos con un control de locura usando una pelota de tenis",
       "quality_score": 0.9,
       "published_at": "2026-06-30T15:15:32.755000",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/29/c0u1E1gGbMZTRxp5d.jpeg"
+      "image_url": "/static/images/articles/522-pedri-control-tenis-espana-austria-2156956323b5.webp"
     },
     {
       "id": 483,
@@ -89,9 +89,9 @@
     }
   ],
   "last_run": {
-    "articles_published": 1,
-    "articles_processed": 313,
-    "images_downloaded": 0,
+    "articles_published": 0,
+    "articles_processed": 314,
+    "images_downloaded": 1,
     "images_skipped": 309,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
