@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-01T18:16:41Z",
+  "generated_at": "2026-07-01T21:17:10Z",
   "database": "website/data/latinos.db",
   "counts": {
     "published": 316,
-    "pending_review": 314,
+    "pending_review": 334,
     "approved": 0
   },
   "latest_published": [
@@ -13,7 +13,7 @@
       "title": "El PSG gana la batalla por Diomande: algo está cambiando",
       "quality_score": 0.91,
       "published_at": "2026-07-01T18:16:37.151431",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/29/6a42ce83c7672.jpeg"
+      "image_url": "/static/images/articles/696-psg-fichaje-diomande-batalla-rb-leipzig-02228c7a6cbe.webp"
     },
     {
       "id": 678,
@@ -89,10 +89,10 @@
     }
   ],
   "last_run": {
-    "articles_published": 1,
-    "articles_processed": 315,
+    "articles_published": 0,
+    "articles_processed": 316,
     "images_downloaded": 1,
-    "images_skipped": 310,
+    "images_skipped": 311,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
