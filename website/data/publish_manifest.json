@@ -1,12 +1,20 @@
 {
-  "generated_at": "2026-07-01T12:15:00Z",
+  "generated_at": "2026-07-01T15:15:58Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 314,
-    "pending_review": 277,
+    "published": 315,
+    "pending_review": 296,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 678,
+      "slug": "arteta-prepara-oferta-130-millones-aston-villa-delantero",
+      "title": "Arteta prepara una jugada de 130 millones de libras por la joya del Aston Villa",
+      "quality_score": 0.88,
+      "published_at": "2026-07-01T15:15:55.319189",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/30/6a438948d6550.jpeg"
+    },
     {
       "id": 522,
       "slug": "pedri-control-tenis-espana-austria",
@@ -78,18 +86,10 @@
       "quality_score": 0.8,
       "published_at": "2026-06-30T04:29:00.124647",
       "image_url": "/static/images/articles/451-sudafrica-clasifica-a-octavos-mundial-2026-maseko-286083a0099d.webp"
-    },
-    {
-      "id": 449,
-      "slug": "legado-latinos-fuerzas-armadas-siglos-de-honor",
-      "title": "Más de dos siglos de honor: el legado inquebrantable de los latinos en las Fuerzas Armadas",
-      "quality_score": 0.84,
-      "published_at": "2026-06-30T04:29:00.124647",
-      "image_url": "/static/images/articles/449-legado-latinos-fuerzas-armadas-siglos-de-honor-c349417da54d.webp"
     }
   ],
   "last_run": {
-    "articles_published": 0,
+    "articles_published": 1,
     "articles_processed": 314,
     "images_downloaded": 0,
     "images_skipped": 310,
