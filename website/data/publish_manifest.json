@@ -1,19 +1,27 @@
 {
-  "generated_at": "2026-07-02T12:15:25Z",
+  "generated_at": "2026-07-02T15:15:50Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 318,
-    "pending_review": 421,
+    "published": 319,
+    "pending_review": 439,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 828,
+      "slug": "hincapie-roja-ley-vinicius-mundial-2026",
+      "title": "Segunda roja por la 'Ley Vinicius': Piero Hincapié sigue a Almirón en el Mundial 2026",
+      "quality_score": 0.89,
+      "published_at": "2026-07-02T15:15:47.506817",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/07/01/6a44936b0001a.jpeg"
+    },
     {
       "id": 804,
       "slug": "entrenadores-despedidos-antes-del-mundial",
       "title": "La ruleta de los banquillos: entrenadores que dan la vuelta antes del Mundial",
       "quality_score": 0.88,
       "published_at": "2026-07-02T12:15:21.150791",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/07/01/6a447f632bace.jpeg"
+      "image_url": "/static/images/articles/804-entrenadores-despedidos-antes-del-mundial-536c11b3106c.webp"
     },
     {
       "id": 786,
@@ -78,21 +86,13 @@
       "quality_score": 0.8,
       "published_at": "2026-06-30T04:29:00.124647",
       "image_url": null
-    },
-    {
-      "id": 459,
-      "slug": "hallan-sin-vida-familia-lucas-trejo-venezuela-sismo",
-      "title": "Duelo en Playa Grande: hallan sin vida a la esposa e hijos del futbolista Lucas Trejo tras 74 horas de búsqueda",
-      "quality_score": 0.8,
-      "published_at": "2026-06-30T04:29:00.124647",
-      "image_url": "/static/images/articles/459-hallan-sin-vida-familia-lucas-trejo-venezuela-sismo-1113a2cb9bf1.webp"
     }
   ],
   "last_run": {
     "articles_published": 1,
-    "articles_processed": 317,
+    "articles_processed": 318,
     "images_downloaded": 1,
-    "images_skipped": 312,
+    "images_skipped": 313,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
     "committed": false,
