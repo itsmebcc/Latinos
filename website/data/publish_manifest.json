@@ -1,12 +1,20 @@
 {
-  "generated_at": "2026-07-02T06:13:40Z",
+  "generated_at": "2026-07-02T09:16:45Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 316,
-    "pending_review": 384,
+    "published": 317,
+    "pending_review": 402,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 786,
+      "slug": "alex-pradilla-real-madrid-valencia-cf",
+      "title": "Pradilla, sobre escoger entre el Valencia y el Madrid: \"Cuando tenga que decidir mi futuro, hablaré\"",
+      "quality_score": 0.85,
+      "published_at": "2026-07-02T09:16:39.028726",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/30/6a441f1dc5dc9.jpeg"
+    },
     {
       "id": 696,
       "slug": "psg-fichaje-diomande-batalla-rb-leipzig",
@@ -78,18 +86,10 @@
       "quality_score": 0.81,
       "published_at": "2026-06-30T04:29:00.124647",
       "image_url": "/static/images/articles/457-sangre-y-sudor-latino-que-forjo-eeuu-7025f15ee3c6.webp"
-    },
-    {
-      "id": 456,
-      "slug": "doblete-pepe-costa-de-marfil-clasificacion-mundial-2026",
-      "title": "El doblete de Pépé le da el pase a Costa de Marfil a la ronda final de la Copa Mundial 2026",
-      "quality_score": 0.83,
-      "published_at": "2026-06-30T04:29:00.124647",
-      "image_url": "/static/images/articles/456-doblete-pepe-costa-de-marfil-clasificacion-mundial-2026-6442d2544b61.webp"
     }
   ],
   "last_run": {
-    "articles_published": 0,
+    "articles_published": 1,
     "articles_processed": 316,
     "images_downloaded": 0,
     "images_skipped": 312,
