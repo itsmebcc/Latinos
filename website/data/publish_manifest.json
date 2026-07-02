@@ -1,19 +1,27 @@
 {
-  "generated_at": "2026-07-02T09:16:45Z",
+  "generated_at": "2026-07-02T12:15:25Z",
   "database": "website/data/latinos.db",
   "counts": {
-    "published": 317,
-    "pending_review": 402,
+    "published": 318,
+    "pending_review": 421,
     "approved": 0
   },
   "latest_published": [
+    {
+      "id": 804,
+      "slug": "entrenadores-despedidos-antes-del-mundial",
+      "title": "La ruleta de los banquillos: entrenadores que dan la vuelta antes del Mundial",
+      "quality_score": 0.88,
+      "published_at": "2026-07-02T12:15:21.150791",
+      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/07/01/6a447f632bace.jpeg"
+    },
     {
       "id": 786,
       "slug": "alex-pradilla-real-madrid-valencia-cf",
       "title": "Pradilla, sobre escoger entre el Valencia y el Madrid: \"Cuando tenga que decidir mi futuro, hablaré\"",
       "quality_score": 0.85,
       "published_at": "2026-07-02T09:16:39.028726",
-      "image_url": "https://objetos-xlk.estaticos-marca.com/files/og_thumbnail/uploads/2026/06/30/6a441f1dc5dc9.jpeg"
+      "image_url": "/static/images/articles/786-alex-pradilla-real-madrid-valencia-cf-77ecdacabf6d.webp"
     },
     {
       "id": 696,
@@ -78,20 +86,12 @@
       "quality_score": 0.8,
       "published_at": "2026-06-30T04:29:00.124647",
       "image_url": "/static/images/articles/459-hallan-sin-vida-familia-lucas-trejo-venezuela-sismo-1113a2cb9bf1.webp"
-    },
-    {
-      "id": 457,
-      "slug": "sangre-y-sudor-latino-que-forjo-eeuu",
-      "title": "Más que un sueño americano: la sangre y el sudor latino que forjaron EE.UU.",
-      "quality_score": 0.81,
-      "published_at": "2026-06-30T04:29:00.124647",
-      "image_url": "/static/images/articles/457-sangre-y-sudor-latino-que-forjo-eeuu-7025f15ee3c6.webp"
     }
   ],
   "last_run": {
     "articles_published": 1,
-    "articles_processed": 316,
-    "images_downloaded": 0,
+    "articles_processed": 317,
+    "images_downloaded": 1,
     "images_skipped": 312,
     "images_failed": 4,
     "manifest_path": "/home/user/Latinos/website/data/publish_manifest.json",
